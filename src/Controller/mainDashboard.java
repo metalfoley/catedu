@@ -27,7 +27,8 @@ public class mainDashboard extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String id = request.getParameter("id");
-		if(id == null) {
+		System.out.println(id);
+		if(id.equals("")) {
 			response.sendRedirect("/login.jsp");
 		}
 		else {
