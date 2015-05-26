@@ -1,0 +1,145 @@
+html,body {
+	height: 100%;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+.clearfix {
+    display: inline-block;
+}
+
+html[xmlns] .clearfix {
+    display: block;
+}
+
+* html .clearfix {
+    height: 1%;
+}
+
+body {
+	background-image: url("../img/bg-pattern.png");
+	width: 100%;
+}
+
+#container {
+	max-width: 90%;
+	position: relative;
+	width: 1200px;
+	height: 100%;
+	margin: 0 auto;
+	display: block;
+	background-color: #eee;
+	  padding: 9rem 4rem 4rem;
+	-webkit-box-shadow: inset 5px 0px rgba(0, 0, 0, 0.6);
+       -moz-box-shadow: inset 5px 0px 10px rgba(0, 0, 0, 0.6);
+            box-shadow: inset 5px 0px 10px rgba(0, 0, 0, 0.6);
+}
+
+#sidebar {
+	padding: 9rem 2rem 2rem;
+  	position: absolute;
+  	max-width: 10%;
+  	width: 10%;
+}
+
+#sidebar .btn {
+	display: block;
+	margin-bottom: 1rem;
+}
+
+#log-container {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	   -moz-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+	-webkit-box-shadow:0 5px 10px rgba(110, 99, 2, 0.6);
+       -moz-box-shadow:0 5px 10px rgba(110, 99, 2, 0.6);
+            box-shadow:0 5px 10px rgba(110, 99, 2, 0.6);
+	background-color: #EDD605;
+	padding: .5rem 3rem 3rem;
+	border-radius: .75rem;
+}
+
+#log-container h1{
+	font-family: 'Arimo', sans-serif;
+	font-weight: 700;
+	margin-top: 1.25rem;
+}
+
+#login {
+	border-radius: .75rem;
+	background-color: rgba(39,51,59,1);
+	padding: 2rem;
+	-webkit-box-shadow:0 5px 10px rgba(0, 0, 0, 0.6);
+       -moz-box-shadow:0 5px 10px rgba(0, 0, 0, 0.6);
+            box-shadow:0 5px 10px rgba(0, 0, 0, 0.6);
+}
+
+#login label {
+	font-family: 'Arimo', sans-serif;
+	font-weight: 700;
+	letter-spacing: .0625rem;
+	color: #EDD605;
+}
+
+#login input {
+	display: block;
+	margin-bottom: 2rem;
+	border-radius: .5rem;
+}
+
+#login button[type="submit"] {
+	margin-top: 1rem;
+}
+
+.navbar-brand {
+	position: relative;
+	margin-left: 2rem;
+}
+
+.navbar-inverse {
+	background-image: linear-gradient(to bottom,#34444F 0,#27333B 100%);
+}
+
+.navbar-inverse .navbar-brand {
+	color: #EDD605;
+}
+
+.navbar-inverse .navbar-brand:hover {
+	color: #BDAA04;
+}
+
+.navbar-brand img {
+ 	width: 50%;
+ 	display: inline-block;
+  	padding-top: 10px;
+  	padding-bottom: 10px;
+  	position: absolute;
+  	top: -25px;
+  	left: -50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
