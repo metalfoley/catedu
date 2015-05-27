@@ -37,7 +37,6 @@ public class loginController extends HttpServlet {
 				while(rs.next()) {
 					id = rs.getInt("Person_ID");
 				}
-				System.out.println(id);
 				response.sendRedirect(String.format("mainDashboard?id=%d", id));
 			}
 			else{

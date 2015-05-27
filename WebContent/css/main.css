@@ -28,29 +28,62 @@ body {
 	width: 100%;
 }
 
-#container {
+.panel-body, .tab-pane {
+	min-height: 12rem;
+}
+
+.tab-pane {
+    background: #F5F5F5;
+    box-shadow: 0 0 4px rgba(0,0,0,.4);
+    border-radius: 0;
+    text-align: center;
+    padding: 10px;
+}
+
+ul.nav.nav-tabs {
+	background-image: linear-gradient(to bottom,#f5f5f5 0,#e8e8e8 100%);
+}
+
+.container-fluid {
+	width: 100%;
+	padding-left: 0;
+}
+
+.mainbody {
 	max-width: 90%;
 	position: relative;
 	width: 1200px;
 	height: 100%;
 	margin: 0 auto;
 	display: block;
-	background-color: #eee;
-	  padding: 9rem 4rem 4rem;
-	-webkit-box-shadow: inset 5px 0px rgba(0, 0, 0, 0.6);
-       -moz-box-shadow: inset 5px 0px 10px rgba(0, 0, 0, 0.6);
-            box-shadow: inset 5px 0px 10px rgba(0, 0, 0, 0.6);
+	padding: 9rem 6rem 4rem;
+}
+
+.mainbody .row{
+	width: 100%;
+	margin: 0 auto;
 }
 
 #sidebar {
 	padding: 9rem 2rem 2rem;
   	position: absolute;
   	max-width: 10%;
-  	width: 10%;
+  	height: 100%;
+  	padding-left: 2.8rem;
+  	-webkit-box-shadow: 5px 0 10px rgba(110, 99, 2, 0.6);
+       -moz-box-shadow: 5px 0 10px rgba(110, 99, 2, 0.6);
+            box-shadow: 5px 0 10px rgba(110, 99, 2, 0.6);
+  	background-color: #EDD605;
 }
 
-#sidebar .btn {
+#sidebar .row, #sidebar .btn {
 	display: block;
+	margin: 0 auto 1rem;
+	width: 100%;
+	white-space: normal;
+}
+
+#sidebar .row:first-child {
 	margin-bottom: 1rem;
 }
 
