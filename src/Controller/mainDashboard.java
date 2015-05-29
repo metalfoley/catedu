@@ -19,6 +19,8 @@ import Base.Filo;
 @WebServlet("/mainDashboard")
 public class mainDashboard extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	String firstName;
+	String role;
        
     public mainDashboard() {}
 
@@ -27,21 +29,24 @@ public class mainDashboard extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String id = request.getParameter("id");
-		if(id.equals("")) {
-			response.sendRedirect("/login.jsp");
+		ResultSet rs = DBConn.query("SELECT Person.FirstName, Roles.Role FROM Person INNER JOIN Roles ON Person.Role = Roles.ID WHERE Person.ID='"+id+"'");
+		try {
+			while(rs.next()) {
+				firstName = rs.getString("FirstName");
+				role = rs.getString("Role");
+			}
+		} catch (SQLException e) {
+			Filo.log("SQLException - MainDashboard: "+e.getMessage());
+		}
+		// Make sure user is 
+		if(role.toLowerCase().equals("principle") || role.toLowerCase().equals("teacher") || 
+			role.toLowerCase().equals("councelor") || role.toLowerCase().equals("sysadmin")) {
+			request.setAttribute("firstName", firstName);
+			request.setAttribute("role", role.toLowerCase());
+			request.getRequestDispatcher("/index.jsp").forward(request,response);
 		}
 		else {
-			String firstName = null;
-			ResultSet rs = DBConn.query("SELECT Person.firstName From Person WHERE ID='"+id+"'");
-			try {
-				while(rs.next()) {
-					firstName = rs.getString("FirstName");
-				}
-			} catch (SQLException e) {
-				Filo.log("SQLException - MainDashboard: "+e.getMessage());
-			}
-			request.setAttribute("firstName", firstName);
-			request.getRequestDispatcher("/index.jsp").forward(request,response);
+			response.sendRedirect("login");
 		}
 	}
 

@@ -18,16 +18,21 @@ import Program.Person;
 /**
  * Servlet implementation class loginController
  */
-@WebServlet("/loginController")
+@WebServlet("/login")
 public class loginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	int id;
+	boolean error = true;
 
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getRequestDispatcher("/login.jsp").forward(request,response);
+	}
+	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		DBConn db = new DBConn();
 		String userName = request.getParameter("username");
 		String password = request.getParameter("password");
 				
@@ -40,7 +45,8 @@ public class loginController extends HttpServlet {
 				response.sendRedirect(String.format("mainDashboard?id=%d", id));
 			}
 			else{
-				response.sendRedirect("login.jsp");
+				request.setAttribute("error", error);
+				request.getRequestDispatcher("/login.jsp").forward(request,response);
 			}
 		} catch (SQLException e) {
 			Filo.log(e.getMessage());

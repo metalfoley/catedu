@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib  prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="includes/header.jsp" %>
+<%@ include file="includes/navbar.jsp" %>
 
     <div class="container-fluid clearfix">
 
@@ -14,7 +16,7 @@
           <button type="button" class="btn btn-primary">Button 6</button>
         </div>
         <div class="row">
-          <button type="button" class="btn btn-primary">Button 1</button>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Button 1</button>
           <button type="button" class="btn btn-primary">Button 2</button>
           <button type="button" class="btn btn-primary">Button 3</button>
           <button type="button" class="btn btn-primary">Button 4</button>
@@ -31,7 +33,7 @@
               <h3 class="panel-title">Summary</h3>
             </div>
             <div class="panel-body">
-              Panel content
+              Hello ${firstName}
             </div>
           </div>
         </div>
@@ -49,37 +51,17 @@
 
         <div class="row">
 
-          <div role="tabpanel">
-
-            <!-- Nav tabs -->
-            <ul class="nav nav-tabs" role="tablist">
-              <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
-              <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
-              <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
-              <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
-            </ul>
-
-            <!-- Tab panes -->
-            <div class="tab-content">
-              <div role="tabpanel" class="tab-pane active" id="home">
-                  <p>Home</p>
-              </div>
-              <div role="tabpanel" class="tab-pane" id="profile">
-                  <p>profile</p>
-              </div>
-              <div role="tabpanel" class="tab-pane" id="messages">
-                  <p>messages</p>
-              </div>
-              <div role="tabpanel" class="tab-pane" id="settings">
-                  <p>settings</p>
-              </div>
-            </div>
-          </div>
+		  <jsp:include page="includes/tabs/${role}Tab.jsp" />
         
         </div>
 
       </div>
 
     </div>
-
+<c:set var="role" value="${role}"/>
+<c:choose>
+<c:when test="${role == 'teacher'}" >
+	<%@ include file="includes/modals/modal1.jsp" %>
+</c:when>
+</c:choose>
 <%@ include file="includes/footer.jsp" %> 
