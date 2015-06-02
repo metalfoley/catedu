@@ -86,6 +86,8 @@ ul.nav.nav-tabs {
 .container-fluid {
 	width: 100%;
 	padding-left: 0;
+	position: relative;
+  	top: -50px;
 }
 
 .mainbody {
@@ -104,15 +106,19 @@ ul.nav.nav-tabs {
 }
 
 #sidebar {
-	padding: 9rem 2rem 2rem;
+	margin-top: 9rem;
   	position: absolute;
   	max-width: 10%;
-  	height: 100%;
-  	padding-left: 2.8rem;
+  	padding: 0 0 0 15px;
+}
+
+#sidebar .row {
+	padding: 2rem;
+  	border-radius: .5rem;
   	-webkit-box-shadow: 5px 0 10px rgba(110, 99, 2, 0.6);
        -moz-box-shadow: 5px 0 10px rgba(110, 99, 2, 0.6);
             box-shadow: 5px 0 10px rgba(110, 99, 2, 0.6);
-  	background-color: #EDD605;
+            background-color: #EDD605;
 }
 
 #sidebar .row, #sidebar .btn {
@@ -185,9 +191,32 @@ ul.nav.nav-tabs {
 /*****************************************************************
  							 NAVBAR
 *****************************************************************/
+nav {
+	background-color: #80BA17;
+  	width: 100%;
+}
+
+
 .navbar-brand {
 	position: relative;
 	margin-left: 2rem;
+	padding: 0;
+}
+
+#navlinks {
+	margin-right: 2rem;
+	padding-top: 5px;
+}
+
+#navlinks a{
+	display: block;
+	color: #fff;
+	text-decoration: none;
+	text-align: right;
+}
+
+#navlinks a:hover {
+	color: #FFEEA8;
 }
 
 .navbar-inverse {
@@ -203,11 +232,6 @@ ul.nav.nav-tabs {
 }
 
 .navbar-brand img {
- 	width: 50%;
- 	display: inline-block;
-  	padding-top: 10px;
-  	padding-bottom: 10px;
-  	position: absolute;
-  	top: -25px;
-  	left: -50px;
+ 	width: 5.7rem;
+  	display: inline-block;
 }

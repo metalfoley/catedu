@@ -6,7 +6,7 @@ public class Principle extends Person{
 			String city, String state, String zipCode, String phoneOne,
 			String phoneTwo, String email, String role, boolean active) {
 		super(id, firstName, lastName, address, city, state, zipCode, phoneOne,
-				phoneTwo, email, role, active);
+				phoneTwo, email, active);
 	}
 
 	School school;

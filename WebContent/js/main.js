@@ -1,5 +1,15 @@
 $(document).ready(function() {
 	
+	// Toggle password visibilty when checkbox is checked
+	$("#login").on('change', "#showPass", function() {
+		if($("#showPass").is(":checked")){
+			$("#password").prop('type', 'text');
+		} 
+        else{
+			$("#password").prop('type', 'password');
+		}
+	});
+	
 	//Tabs on main dashboard
 	$('#myTab a[href="#home"]').click(function (e) {
 	  e.preventDefault()
@@ -18,12 +28,4 @@ $(document).ready(function() {
 	  $(this).tab('show')
 	})
 	
-	$("#showPass").change(function() {
-		if(checked=true){
-			$("#password").prop('type', 'text');
-		} 
-        else if(checked=false){
-			$("#password").prop('type', 'password');
-		}
-	})
 });

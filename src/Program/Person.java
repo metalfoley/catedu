@@ -1,24 +1,23 @@
 package Program;
 
-public class Person {
+public abstract class Person {
 	
-	private String firstName;
-	private String lastName;
-	private String fullName;
-	private String userName;
-	private int id;
-	private String address;
-	private String city;
-	private String state;
-	private String zipCode;
-	private String phoneOne;
-	private String email;
-	private String role;
-	private boolean active;
+	protected String firstName;
+	protected String lastName;
+	protected String fullName;
+	protected int id;
+	protected String address;
+	protected String city;
+	protected String state;
+	protected String zipCode;
+	protected String phoneOne;
+	protected String email;
+	protected String role;
+	protected boolean active;
 	
 
-	public Person(int id, String firstName, String lastName,
-			String userName, String address, String city, String state, String zipCode,
+	protected Person(int id, String firstName, String lastName, 
+			String address, String city, String state, String zipCode,
 			String phoneOne, String email, String role, boolean active) {
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -32,6 +31,8 @@ public class Person {
 		this.role = role;
 		this.active = active;
 	}
+	
+	protected Person() {}
 
 
 	public String getFirstName() {
@@ -62,15 +63,6 @@ public class Person {
 	public void setFullName(String fullName) {
 		this.fullName = fullName;
 	}
-	
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
 
 	public int getId() {
 		return id;

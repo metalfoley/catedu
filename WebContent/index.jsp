@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib  prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="includes/header.jsp" %>
 <%@ include file="includes/navbar.jsp" %>
@@ -33,7 +33,7 @@
               <h3 class="panel-title">Summary</h3>
             </div>
             <div class="panel-body">
-              Hello ${firstName}
+              Hello ${currentUser.getFirstName()}
             </div>
           </div>
         </div>
@@ -51,17 +51,19 @@
 
         <div class="row">
 
-		  <jsp:include page="includes/tabs/${role}Tab.jsp" />
+		  <jsp:include page="includes/tabs/${currentUser.getRole()}Tab.jsp" />
         
         </div>
 
       </div>
 
     </div>
-<c:set var="role" value="${role}"/>
+<c:set var="role" value="${currentUser.getRole()}"/>
 <c:choose>
-<c:when test="${role == 'teacher'}" >
+<c:when test="${role == 'Teacher'}" >
 	<%@ include file="includes/modals/modal1.jsp" %>
 </c:when>
 </c:choose>
-<%@ include file="includes/footer.jsp" %> 
+<%@ include file="includes/footer.jsp" %>
+</body>
+</html>
