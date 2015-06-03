@@ -51,7 +51,7 @@
 
         <div class="row">
 
-		  <jsp:include page="includes/tabs/${currentUser.getRole()}Tab.jsp" />
+		   <jsp:include page="includes/tabs/${currentUser.getRole()}Tab.jsp"/>
         
         </div>
 

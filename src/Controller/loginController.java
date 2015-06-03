@@ -17,14 +17,22 @@ import Program.CurrentUser;
 /**
  * Servlet implementation class loginController
  */
-@WebServlet("/login")
+@WebServlet("/home")
 public class loginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	boolean error = true;
 	CurrentUser currentUser;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/login.jsp").forward(request,response);
+		currentUser = (CurrentUser) request.getAttribute("currentUser");
+		
+		if(currentUser == null)
+			response.sendRedirect("login.jsp");
+		else {
+			request.setAttribute("currentUser", currentUser);
+			request.getRequestDispatcher("/index.jsp").forward(request,response);
+		}
+			
 	}
 	
 	/**
@@ -41,7 +49,7 @@ public class loginController extends HttpServlet {
 				   "Person.LastName, Person.Address, Person.City, Person.State, Person.Zipcode, " +
 				   "Person.Phone1, Person.Email, Roles.Role, Person.Active FROM Account " +
 				   "INNER JOIN Person ON Account.Person_ID = Person.ID INNER JOIN Roles ON Person.role = Roles.ID " +
-				   "WHERE UserName='teacher' AND Password='teacher'";
+				   "WHERE UserName='"+userName+"' AND Password='"+password+"'";
 		ResultSet rs = DBConn.query(userQuery);
 		try {
 			if(rs.isBeforeFirst() && !userName.equals("") && !password.equals("")){
@@ -87,7 +95,7 @@ public class loginController extends HttpServlet {
 	private void setError(HttpServletRequest request, HttpServletResponse response) {
 		request.setAttribute("error", error);
 		try {
-			request.getRequestDispatcher("/login").forward(request,response);
+			request.getRequestDispatcher("login.jsp").forward(request,response);
 		} catch (ServletException | IOException e) {
 			Filo.log(e.getMessage());
 		}

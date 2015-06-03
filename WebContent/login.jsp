@@ -2,11 +2,12 @@
     pageEncoding="UTF-8"%>
 <%@ taglib  prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="includes/header.jsp" %>
+<%@ include file="includes/navbar.jsp" %>
     <div class="clearfix">
     	<div class="container">
 	        <div id="log-container">
 	            <h1>LOGIN: </h1>
-	            <form id="login" class="clearfix" action="login" method="post">
+	            <form id="login" class="clearfix" action="home" method="post">
 	                <label for="username">User Name: </label>
 	                <input type="text" name="username">
 	                <label for="password">Password: </label>
