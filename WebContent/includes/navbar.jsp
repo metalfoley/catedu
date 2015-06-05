@@ -8,8 +8,8 @@
     	<img src="img/banner.jpg" alt="Catalyst Education Banner" />
     </div>
     <div class="pull-right" id="navlinks">
-    	<a href="logout">Logout</a>
     	<c:if test="${currentUser.getRole() != null}">
+    	<a href="logout">Logout</a>
     	<a href="mainDashboard">${currentUser.getFirstName()} ${currentUser.getLastName()} / ${currentUser.getRole()}</a>
     	</c:if>
     </div>
