@@ -8,20 +8,13 @@
 
       <div class="container pull-left" id="sidebar">
         <div class="row">
-          <button type="button" class="btn btn-primary">Button 1</button>
-          <button type="button" class="btn btn-primary">Button 2</button>
-          <button type="button" class="btn btn-primary">Button 3</button>
-          <button type="button" class="btn btn-primary">Button 4</button>
-          <button type="button" class="btn btn-primary">Button 5</button>
-          <button type="button" class="btn btn-primary">Button 6</button>
+          <a href="lessonplanwizard"><button type="button" class="btn btn-primary">Create Lesson Plan</button></a>
+          <a href="createlessonwizard"><button type="button" class="btn btn-primary">Create Lesson</button></a>
+          <a href="#"><button type="button" class="btn btn-primary">Add Student</button></a>
         </div>
         <div class="row">
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Button 1</button>
-          <button type="button" class="btn btn-primary">Button 2</button>
-          <button type="button" class="btn btn-primary">Button 3</button>
-          <button type="button" class="btn btn-primary">Button 4</button>
-          <button type="button" class="btn btn-primary">Button 5</button>
-          <button type="button" class="btn btn-primary">Button 6</button>
+          <a href="#"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Deactivate</button></a>
+          <a href="#"><button type="button" class="btn btn-primary">Suggest Move</button></a>
         </div>
       </div>
 

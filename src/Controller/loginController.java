@@ -73,7 +73,7 @@ public class loginController extends HttpServlet {
 				}
 				else {
 					request.setAttribute("currentUser", currentUser);
-					request.getRequestDispatcher("/index.jsp").forward(request,response);
+					request.getRequestDispatcher("index.jsp").forward(request,response);
 				}
 			}
 			else{
