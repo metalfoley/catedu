@@ -1,4 +1,4 @@
-package Controller;
+package controller.lessons;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class LessonWizard
+ * Servlet implementation class LessonPlanWizard
  */
-@WebServlet("/createlessonwizard")
-public class LessonWizard extends HttpServlet {
+@WebServlet("/lessonplanwizard")
+public class LessonPlanWizard extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LessonWizard() {
+    public LessonPlanWizard() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,14 +26,14 @@ public class LessonWizard extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/lessoncreatewiz1.jsp").forward(request, response);
+		request.getRequestDispatcher("/lessonplancreatewiz1.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/lessoncreatewiz1.jsp").forward(request, response);
+		request.getRequestDispatcher("/lessonplancreatewiz1.jsp").forward(request, response);
 	}
 
 }

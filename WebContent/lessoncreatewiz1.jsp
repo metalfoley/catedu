@@ -8,7 +8,7 @@
 		<c:if test="${error}">
 			<p id="wizError">ERROR ERROR ERROR ERROR ERROR ERROR ERRROR</p>
 		</c:if>
-		<form class="form-horizontal row col-md-11" action="createlessonwizard" method="post">
+		<form class="form-horizontal row col-md-11" action="lessonwizardtwo" method="post">
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="name">
 					<span class="glyphicon glyphicon-asterisk"></span> 
@@ -33,7 +33,7 @@
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="subject">Advanced: </label>
 				<div class="col-sm-10 checkbox">
-      				<input type="checkbox">
+      				<input type="checkbox" name="advanced">
 				</div>
 			</div>
 			<div class="pull-right">

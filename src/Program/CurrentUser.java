@@ -1,4 +1,4 @@
-package Program;
+package program;
 
 public class CurrentUser extends Person{
 

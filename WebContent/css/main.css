@@ -269,12 +269,6 @@ nav #banner img{
 
 .wizBody {
 	padding: 3rem 15px;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	-webkit-transform: translate(-50%,-50%);
-		-ms-transform: translate(-50%,-50%);
-			transform: translate(-50%,-50%);
 	border-radius: 1rem;
 }
 
@@ -291,6 +285,14 @@ nav #banner img{
 #wizError {
 	color:red;
 	margin: 0 5rem 2rem;
+}
+
+.lessonTwo textarea {
+	margin-bottom: 2rem;
+}
+
+.lessonTwo div {
+	padding: 0;
 }
 
 /*****************************************************************

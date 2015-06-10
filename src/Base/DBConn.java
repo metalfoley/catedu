@@ -1,4 +1,4 @@
-package Base;
+package base;
 import java.sql.*;
 
 public class DBConn {
@@ -60,7 +60,6 @@ public class DBConn {
 	
 	public static void update(String s) throws SQLException
 	{
-		openConn();
 		try
 		{
 			PreparedStatement ps = conn.prepareStatement(s, Statement.RETURN_GENERATED_KEYS);
@@ -71,15 +70,10 @@ public class DBConn {
 		{
 			Filo.log("DBConn.update: " + ex.getMessage());
 		}
-		finally
-		{
-			conn.close();
-		}
 	}
 	
 	public static ResultSet query(String s) 
 	{
-		openConn();
 		try
 		{
 			PreparedStatement ps = conn.prepareStatement(s, Statement.RETURN_GENERATED_KEYS);

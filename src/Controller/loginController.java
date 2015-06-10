@@ -1,4 +1,4 @@
-package Controller;
+package controller;
 
 import java.io.IOException;
 import java.sql.ResultSet;
@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Base.DBConn;
-import Base.Filo;
-import Program.CurrentUser;
+import program.CurrentUser;
+import base.DBConn;
+import base.Filo;
 
 /**
  * Servlet implementation class loginController
@@ -50,6 +50,7 @@ public class loginController extends HttpServlet {
 				   "Person.Phone1, Person.Email, Roles.Role, Person.Active FROM Account " +
 				   "INNER JOIN Person ON Account.Person_ID = Person.ID INNER JOIN Roles ON Person.role = Roles.ID " +
 				   "WHERE UserName='"+userName+"' AND Password='"+password+"'";
+		DBConn.openConn();
 		ResultSet rs = DBConn.query(userQuery);
 		try {
 			if(rs.isBeforeFirst() && !userName.equals("") && !password.equals("")){
