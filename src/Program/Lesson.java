@@ -1,5 +1,8 @@
 package program;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class Lesson {
 	
 	int id;
@@ -11,10 +14,14 @@ public class Lesson {
 	String details;
 	String materials;	
 	boolean isAdvanced;
+	ArrayList<CoreStandard> coreStandards;
+	HashMap<Classes, ArrayList<CoreStandard>> classCoreLink;
 	
 	public Lesson(String name, boolean isAdvanced) {
 		this.name = name;
 		this.isAdvanced = isAdvanced;
+		coreStandards = new ArrayList<CoreStandard>();
+		classCoreLink= new HashMap<Classes, ArrayList<CoreStandard>>();
 	}
 
 	public String getName() {
