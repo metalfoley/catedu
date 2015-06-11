@@ -33,7 +33,7 @@ public class LessonWizardThree extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		response.sendRedirect("lessonwizard");
 	}
 
 	/**
@@ -52,7 +52,6 @@ public class LessonWizardThree extends HttpServlet {
 		String query = "UPDATE Lesson SET Enhancements='"+enhancements+"', Extensions='"+extensions+"', Details='"+details+"', Materials='"+materials+"' WHERE ID="+tempLesson.getId();
 		DBConn.openConn();
 		try {
-			System.out.println(query);
 			DBConn.update(query);
 		} catch (SQLException e) {
 			Filo.log(e.getMessage());
@@ -66,7 +65,7 @@ public class LessonWizardThree extends HttpServlet {
 			tempLesson.setExtensions(extensions);
 			tempLesson.setDetails(details);
 			tempLesson.setMaterials(materials);
-			request.setAttribute("tempLesson", tempLesson);
+			request.getSession().setAttribute("tempLesson", tempLesson);
 			request.getRequestDispatcher("/lessoncreatewiz3.jsp").forward(request, response);
 		}
 		else {

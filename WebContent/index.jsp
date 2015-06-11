@@ -9,7 +9,7 @@
       <div class="container pull-left" id="sidebar">
         <div class="row">
           <a href="lessonplanwizard"><button type="button" class="btn btn-primary">Create Lesson Plan</button></a>
-          <a href="createlessonwizard"><button type="button" class="btn btn-primary">Create Lesson</button></a>
+          <a href="lessonwizard"><button type="button" class="btn btn-primary">Create Lesson</button></a>
           <a href="#"><button type="button" class="btn btn-primary">Add Student</button></a>
         </div>
         <div class="row">

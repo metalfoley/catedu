@@ -40,7 +40,7 @@
 				<button value="Cancel" class="btn btn-danger">Cancel</button>
 				<button type="submit" value="Continue" class="btn btn-success">Continue</button>
 			</div>
-			<p><span class="glyphicon glyphicon-asterisk"></span> Required Field</p>
+			<p class="required"><span class="glyphicon glyphicon-asterisk"></span> Required Field</p>
 		</form>
 	</div>
 </body>

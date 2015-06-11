@@ -276,7 +276,7 @@ nav #banner img{
 	margin-top: 2rem;
 }
 
-.wizBody form p {
+.wizBody form .required {
 	position: absolute;
   	top: 90%;
   	left: 5%;
@@ -293,6 +293,10 @@ nav #banner img{
 
 .lessonTwo div {
 	padding: 0;
+}
+
+.wizard3-4 {
+	width: 100%;
 }
 
 /*****************************************************************

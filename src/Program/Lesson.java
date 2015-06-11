@@ -5,23 +5,21 @@ import java.util.HashMap;
 
 public class Lesson {
 	
-	int id;
-	String name;
-	String shortDescription;
-	String fullDescription;
-	String enhancements;
-	String extensions;
-	String details;
-	String materials;	
-	boolean isAdvanced;
-	ArrayList<CoreStandard> coreStandards;
-	HashMap<Classes, ArrayList<CoreStandard>> classCoreLink;
+	private int id;
+	private String name;
+	private String shortDescription;
+	private String fullDescription;
+	private String enhancements;
+	private String extensions;
+	private String details;
+	private String materials;	
+	private boolean isAdvanced;
+	private HashMap<String, ArrayList<String>> classCoreLink;
 	
 	public Lesson(String name, boolean isAdvanced) {
 		this.name = name;
 		this.isAdvanced = isAdvanced;
-		coreStandards = new ArrayList<CoreStandard>();
-		classCoreLink= new HashMap<Classes, ArrayList<CoreStandard>>();
+		classCoreLink= new HashMap<String, ArrayList<String>>();
 	}
 
 	public String getName() {
@@ -94,6 +92,14 @@ public class Lesson {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public HashMap<String, ArrayList<String>> getClassCoreLink() {
+		return classCoreLink;
+	}
+
+	public void setClassCoreLink(HashMap<String, ArrayList<String>> classCoreLink) {
+		this.classCoreLink = classCoreLink;
 	}
 	
 }

@@ -21,13 +21,13 @@
 			
 			<!-- use for each loop based on core standards table. update value with the corest name -->
 			<div class="checkbox form-group col-md-9 col-md-offset-2">
-			  <label><input type="checkbox" value="CoreStandard1">CoreStandard 1</label>
-			  <label><input type="checkbox" value="CoreStandard1">CoreStandard 2</label>
-			  <label><input type="checkbox" value="CoreStandard1">CoreStandard 3</label>
-			  <label><input type="checkbox" value="CoreStandard1">CoreStandard 4</label>
-			  <label><input type="checkbox" value="CoreStandard1">CoreStandard 5</label>
-			  <label><input type="checkbox" value="CoreStandard1">CoreStandard 6</label>
-			  <label><input type="checkbox" value="CoreStandard1">CoreStandard 7</label>
+			  <label class="wizard3-4"><input type="checkbox" value="CoreStandard1">CoreStandard 1</label>
+			  <label class="wizard3-4"><input type="checkbox" value="CoreStandard1">CoreStandard 2</label>
+			  <label class="wizard3-4"><input type="checkbox" value="CoreStandard1">CoreStandard 3</label>
+			  <label class="wizard3-4"><input type="checkbox" value="CoreStandard1">CoreStandard 4</label>
+			  <label class="wizard3-4"><input type="checkbox" value="CoreStandard1">CoreStandard 5</label>
+			  <label class="wizard3-4"><input type="checkbox" value="CoreStandard1">CoreStandard 6</label>
+			  <label class="wizard3-4"><input type="checkbox" value="CoreStandard1">CoreStandard 7</label>
 			</div>
 			
 			<div class="pull-right">
