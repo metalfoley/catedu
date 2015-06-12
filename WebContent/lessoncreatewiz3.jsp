@@ -11,13 +11,9 @@
 			
 			<!-- use for each loop based on lessons table. update value with the lesson name -->
 			<div class="radio form-group col-md-9 col-md-offset-2">
-			  <label class="wizard3-4"><input name="leadLesson" type="radio" value="lesson1">Lesson 1</label>
-			  <label class="wizard3-4"><input name="leadLesson" type="radio" value="lesson2">Lesson 2</label>
-			  <label class="wizard3-4"><input name="leadLesson" type="radio" value="lesson3">Lesson 3</label>
-			  <label class="wizard3-4"><input name="leadLesson" type="radio" value="lesson4">Lesson 4</label>
-			  <label class="wizard3-4"><input name="leadLesson" type="radio" value="lesson5">Lesson 5</label>
-			  <label class="wizard3-4"><input name="leadLesson" type="radio" value="lesson6">Lesson 6</label>
-			  <label class="wizard3-4"><input name="leadLesson" type="radio" value="lesson7">Lesson 7</label>
+			  <c:forEach items="${lessons}" var="lesson">
+			  	<label class="wizard3-4"><input name="leadLesson" type="radio" value="${lesson.getId()}">${lesson.getName()}</label>
+			  </c:forEach>
 			</div>
 			
 			<div class="pull-right">

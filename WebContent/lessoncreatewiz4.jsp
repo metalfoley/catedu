@@ -12,22 +12,18 @@
 				<div class="col-sm-5">
 					<select class="form-control">
 						<option value="" selected="selected" disabled>Please Select a Subject</option>
-						<option>Science</option>
-						<option>Math</option>
-						<option>History</option>
+						<c:forEach items="${classes}" var="singleClass">
+							<option value="${singleClass}">${singleClass}</option>
+						</c:forEach>
 					</select>
 				</div>
 			</div>
 			
 			<!-- use for each loop based on core standards table. update value with the corest name -->
 			<div class="checkbox form-group col-md-9 col-md-offset-2">
-			  <label class="wizard3-4"><input type="checkbox" value="CoreStandard1">CoreStandard 1</label>
-			  <label class="wizard3-4"><input type="checkbox" value="CoreStandard1">CoreStandard 2</label>
-			  <label class="wizard3-4"><input type="checkbox" value="CoreStandard1">CoreStandard 3</label>
-			  <label class="wizard3-4"><input type="checkbox" value="CoreStandard1">CoreStandard 4</label>
-			  <label class="wizard3-4"><input type="checkbox" value="CoreStandard1">CoreStandard 5</label>
-			  <label class="wizard3-4"><input type="checkbox" value="CoreStandard1">CoreStandard 6</label>
-			  <label class="wizard3-4"><input type="checkbox" value="CoreStandard1">CoreStandard 7</label>
+			  <c:forEach items="${coreStandards}" var="coreStandard">
+			  	<label class="wizard3-4"><input type="checkbox" value="${coreStandard}">${coreStandard}</label>
+			  </c:forEach>
 			</div>
 			
 			<div class="pull-right">

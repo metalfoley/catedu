@@ -12,9 +12,15 @@ public class Lesson {
 	private String enhancements;
 	private String extensions;
 	private String details;
-	private String materials;	
+	private String materials;
+	private String leadLesson;
+	private String assessType;
+	private String assessLink;
+	private String assessInfo;
 	private boolean isAdvanced;
 	private HashMap<String, ArrayList<String>> classCoreLink;
+	
+	public Lesson() {}
 	
 	public Lesson(String name, boolean isAdvanced) {
 		this.name = name;
@@ -100,6 +106,38 @@ public class Lesson {
 
 	public void setClassCoreLink(HashMap<String, ArrayList<String>> classCoreLink) {
 		this.classCoreLink = classCoreLink;
+	}
+
+	public String getLeadLesson() {
+		return leadLesson;
+	}
+
+	public void setLeadLesson(String leadLesson) {
+		this.leadLesson = leadLesson;
+	}
+
+	public String getAssessType() {
+		return assessType;
+	}
+
+	public void setAssessType(String assessType) {
+		this.assessType = assessType;
+	}
+
+	public String getAssessLink() {
+		return assessLink;
+	}
+
+	public void setAssessLink(String assessLink) {
+		this.assessLink = assessLink;
+	}
+
+	public String getAssessInfo() {
+		return assessInfo;
+	}
+
+	public void setAssessInfo(String assessInfo) {
+		this.assessInfo = assessInfo;
 	}
 	
 }
