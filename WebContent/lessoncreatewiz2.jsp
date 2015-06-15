@@ -42,8 +42,8 @@
 				</div>
 			</div>
 			<div class="pull-right">
-				<button value="Cancel" class="btn btn-danger">Cancel</button>
-				<button type="submit" value="Continue" class="btn btn-success">Continue</button>
+				<button value="Cancel" class="btn wizbtn btn-danger">Cancel</button>
+				<button type="submit" value="Continue" class="btn wizbtn btn-success">Continue</button>
 			</div>
 		</form>
 	</div>

@@ -35,6 +35,10 @@ body {
 	position: relative;
 }
 
+.hidden {
+	display: none;
+}
+
 /*****************************************************************
  							 PANELS
 *****************************************************************/
@@ -272,7 +276,7 @@ nav #banner img{
 	border-radius: 1rem;
 }
 
-.wizBody .btn {
+.wizBody .wizbtn {
 	margin-top: 2rem;
 }
 
@@ -287,7 +291,7 @@ nav #banner img{
 	margin: 0 5rem 2rem;
 }
 
-.lessonTwo textarea {
+.lessonTwo textarea, .lessonFive {
 	margin-bottom: 2rem;
 }
 
@@ -298,6 +302,8 @@ nav #banner img{
 .wizard3-4 {
 	width: 100%;
 }
+
+
 
 /*****************************************************************
  							 FORM

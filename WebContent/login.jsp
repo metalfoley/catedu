@@ -19,7 +19,7 @@
 	            
 	            <c:if test="${error}">
 			        <div class="loginError">
-			        	<p>Sorry, we didn't recognize that username and password combination. Please double-check and try again</p>
+			        	<p>Invalid User Name or Password</p>
 			        </div>
 	       		</c:if>
 	            

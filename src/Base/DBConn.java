@@ -85,7 +85,8 @@ public class DBConn {
 		{
 			Filo.log("DBConn.query: " + ex.getMessage());
 			return rs;
-		}
+		} 
+		
 	}
 	
 	public static void openConn() {

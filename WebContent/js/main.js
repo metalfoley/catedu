@@ -28,4 +28,14 @@ $(document).ready(function() {
 	  $(this).tab('show')
 	})
 	
+	// Lesson Wizard 4
+	$('#coreClass').change(function() {
+		var value = $("#coreClass option:selected").val();
+		var divString = "#" + value;
+		var divShow = $(divString);
+		
+		divShow.removeClass("hidden");
+		divShow.siblings().not('.noHide').addClass("hidden");
+	});
+	
 });
