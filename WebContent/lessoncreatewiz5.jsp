@@ -8,13 +8,13 @@
 		<c:if test="${error}">
 			<p id="wizError">ERROR ERROR ERROR ERROR ERROR ERROR ERRROR</p>
 		</c:if>
-		<form class="row col-md-12" action="lessonwizardend" method="post">
+		<form class="row col-md-12" action="lessonwizardfinal" method="post">
 			<div class="form-group container col-sm-11 col-sm-offset-1">
 				
 				<div class="row lessonFive">
 					<label class="col-sm-2 control-label" for="assessInfo">Assessment Type: </label>
 					<div class="col-sm-7">
-					<select class="form-control">
+					<select name="assessments" class="form-control">
 						<option value="" selected="selected" disabled>Please Select An Assessment</option>
 						<c:forEach items="${assessments}" var="assessment">
 							<option value="${assessment.value}">${assessment.key}</option>
@@ -39,7 +39,7 @@
 				
 			</div>
 			<div class="pull-right">
-				<button value="Cancel" class="btn btn-danger">Cancel</button>
+				<a href="lessondashboard"><button value="Cancel" class="btn btn-danger">Cancel</button></a>
 				<button type="submit" value="Finish" class="btn btn-success">Finish</button>
 			</div>
 		</form>

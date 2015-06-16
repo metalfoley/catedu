@@ -18,6 +18,7 @@ public class Lesson {
 	private String assessLink;
 	private String assessInfo;
 	private boolean isAdvanced;
+	private Person author;
 	private HashMap<String, ArrayList<String>> classCoreLink;
 	
 	public Lesson() {}
@@ -138,6 +139,14 @@ public class Lesson {
 
 	public void setAssessInfo(String assessInfo) {
 		this.assessInfo = assessInfo;
+	}
+
+	public Person getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(Person author) {
+		this.author = author;
 	}
 	
 }

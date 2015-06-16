@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import program.Lesson;
 import base.DBConn;
@@ -41,21 +42,23 @@ public class LessonWizardThree extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Lesson tempLesson = (Lesson) request.getSession().getAttribute("tempLesson");
+		HttpSession session = request.getSession();
+		Lesson tempLesson = (Lesson) session.getAttribute("tempLesson");
 		Lesson lesson;
 		ArrayList<Lesson> lessons = new ArrayList<Lesson>();
-		@SuppressWarnings("unused")
-		DBConn conn = new DBConn();
+		
 		String enhancements = request.getParameter("enhancements");
 		String extensions = request.getParameter("extentions");
 		String details = request.getParameter("details");
 		String materials = request.getParameter("materials");
 		boolean success = true;
 		ResultSet rs;
-
-		String query = "UPDATE Lesson SET Enhancements='"+enhancements+"', Extensions='"+extensions+"', Details='"+details+"', Materials='"+materials+"' WHERE ID="+tempLesson.getId();
+		
+		@SuppressWarnings("unused")
+		DBConn conn = new DBConn();
 		DBConn.openConn();
 		rs = DBConn.query("SELECT Lesson.ID, Lesson.Name FROM Lesson");
+		
 		try {
 			while(rs.next()) {
 				lesson = new Lesson();
@@ -66,8 +69,9 @@ public class LessonWizardThree extends HttpServlet {
 		} catch (SQLException e1) {
 			Filo.log(e1.getMessage());
 		}
+		
 		try {
-			DBConn.update(query);
+			DBConn.update("UPDATE Lesson SET Enhancements='"+enhancements+"', Extensions='"+extensions+"', Details='"+details+"', Materials='"+materials+"' WHERE ID='"+tempLesson.getId()+"'");
 		} catch (SQLException e) {
 			Filo.log(e.getMessage());
 			success = false;
@@ -80,7 +84,7 @@ public class LessonWizardThree extends HttpServlet {
 			tempLesson.setExtensions(extensions);
 			tempLesson.setDetails(details);
 			tempLesson.setMaterials(materials);
-			request.getSession().setAttribute("tempLesson", tempLesson);
+
 			request.setAttribute("lessons", lessons);
 			request.getRequestDispatcher("/lessoncreatewiz3.jsp").forward(request, response);
 		}

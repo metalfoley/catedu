@@ -23,13 +23,13 @@
 			<c:forEach items="${classes}" var="singleClass">
 				<div class="checkbox form-group col-md-9 col-md-offset-2 hidden" id="${singleClass}">
 				  <c:forEach items="${coreStandards}" var="coreStandard">
-				  	<label class="wizard3-4"><input type="checkbox" value="${singleClass}">${coreStandard}</label>
+				  	<label class="wizard3-4"><input type="checkbox" name="${singleClass}" value="${coreStandard}">${coreStandard}</label>
 				  </c:forEach>
 				</div>
 			</c:forEach>
 			
 			<div class="pull-right noHide">
-				<button value="Cancel" class="btn wizbtn btn-danger">Cancel</button>
+				<a href="lessondashboard"><button value="Cancel" class="btn wizbtn btn-danger">Cancel</button></a>
 				<button type="submit" value="Continue" class="btn wizbtn btn-success">Continue</button>
 			</div>
 		</form>

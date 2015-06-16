@@ -9,8 +9,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import program.CurrentUser;
+import base.Auth;
 import base.DBConn;
 import base.Filo;
 
@@ -24,14 +26,13 @@ public class loginController extends HttpServlet {
 	CurrentUser currentUser;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		currentUser = (CurrentUser) request.getAttribute("currentUser");
-		
-		if(currentUser == null)
+		HttpSession session = request.getSession();
+		currentUser = (CurrentUser) session.getAttribute("currentUser");
+
+		if(currentUser == null) 
 			response.sendRedirect("login.jsp");
-		else {
-			request.setAttribute("currentUser", currentUser);
-			request.getRequestDispatcher("/index.jsp").forward(request,response);
-		}
+		else
+			request.getRequestDispatcher("index.jsp").forward(request,response);
 			
 	}
 	
@@ -39,6 +40,10 @@ public class loginController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
+		response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
+		response.setDateHeader("Expires", 0); // Proxies.
+		HttpSession session = request.getSession();
 		@SuppressWarnings("unused")
 		DBConn db = new DBConn();
 		currentUser = new CurrentUser();
@@ -73,7 +78,7 @@ public class loginController extends HttpServlet {
 					setError(request,response);
 				}
 				else {
-					request.setAttribute("currentUser", currentUser);
+					session.setAttribute("currentUser", currentUser);
 					request.getRequestDispatcher("index.jsp").forward(request,response);
 				}
 			}

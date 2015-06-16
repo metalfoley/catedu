@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 import javax.servlet.ServletException;
@@ -11,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import program.Lesson;
 import base.DBConn;
@@ -23,7 +25,8 @@ import base.Filo;
 public class LessonWizardFive extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	ArrayList<String> tempArr = new ArrayList<String>();
-       
+	HashMap<String,Integer> assessments;
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -36,29 +39,45 @@ public class LessonWizardFive extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/lessoncreatewiz5.jsp").forward(request, response);	}
+		assessments = createAssessmentTypes();
+		request.setAttribute("assessments", assessments);
+		request.getRequestDispatcher("/lessoncreatewiz5.jsp").forward(request, response);	
+		}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Lesson tempLesson = (Lesson) request.getSession().getAttribute("tempLesson");
+		HttpSession session = request.getSession();
+		HashMap<String, ArrayList<String>> tempHash = new HashMap<String, ArrayList<String>>();
+		Lesson tempLesson = (Lesson) session.getAttribute("tempLesson");
 		
-		String scienceCore[] = request.getParameterValues("Science");
-		String mathCore[] = request.getParameterValues("Math");
-		String historyCore[] = request.getParameterValues("History");
+		String[] scienceCore = request.getParameterValues("Science");
+		String[] mathCore = request.getParameterValues("Math");
+		String[] historyCore = request.getParameterValues("History");
 		
-		for(int i = 0; i < mathCore.length; i++) {
-			Filo.log(mathCore[i]);
+		if(scienceCore.length > 0 && scienceCore != null) {
+			tempHash.put("Science", new ArrayList<String>(Arrays.asList(scienceCore)));
+			// Add to DB
 		}
+		if(mathCore.length > 0 && mathCore != null) {
+			tempHash.put("Math", new ArrayList<String>(Arrays.asList(mathCore)));
+			// Add to DB
+		}
+		if(historyCore.length > 0 && historyCore != null) {
+			tempHash.put("History", new ArrayList<String>(Arrays.asList(historyCore)));
+			// Add to DB
+		}
+		tempLesson.setClassCoreLink(tempHash);
+
+		assessments = createAssessmentTypes();
 		
-		addToLessonHashMap(tempLesson, "Science", scienceCore);
-		addToLessonHashMap(tempLesson, "Math", mathCore);
-		addToLessonHashMap(tempLesson, "History", historyCore);
-		
-		Filo.log(tempLesson.getClassCoreLink().get("Math").get(0));
-		
-		HashMap<String,Integer> assessments = new HashMap<String,Integer>();
+		request.setAttribute("assessments", assessments);
+		request.getRequestDispatcher("/lessoncreatewiz5.jsp").forward(request, response);
+	}
+	
+	private HashMap<String,Integer> createAssessmentTypes() {
+		assessments = new HashMap<String,Integer>();
 		ResultSet rs;
 		@SuppressWarnings("unused")
 		DBConn db = new DBConn();
@@ -68,7 +87,7 @@ public class LessonWizardFive extends HttpServlet {
 		rs = DBConn.query("SELECT * FROM Assessment_Types");
 		try {
 			while(rs.next()) {
-				assessments.put(rs.getString("Assessment_Type"),rs.getInt("ID"));
+				assessments.put(rs.getString("Assessment_Type"),new Integer(rs.getInt("ID")));
 			}
 		} catch (SQLException e) {
 			Filo.log(e.getMessage());
@@ -76,17 +95,7 @@ public class LessonWizardFive extends HttpServlet {
 			DBConn.closeConn();
 		}
 		
-		request.getSession().setAttribute("tempLesson", tempLesson);
-		request.setAttribute("assessments", assessments);
-		request.getRequestDispatcher("/lessoncreatewiz5.jsp").forward(request, response);
+		return assessments;
 	}
 
-	private void addToLessonHashMap(Lesson lesson, String subject, String[] str) {
-		if(str.length > 0) {
-			for(String s : str) {
-				tempArr.add(s);
-			}
-			lesson.getClassCoreLink().put(subject, tempArr);
-		}
-	}
 }
