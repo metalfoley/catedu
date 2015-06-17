@@ -10,6 +10,8 @@ public class Teacher extends Employee {
 				phoneTwo, email, role, active);
 		students = new ArrayList<Student>();
 	}
+	
+	public Teacher(){}
 
 	private ArrayList<Student> students;
 	

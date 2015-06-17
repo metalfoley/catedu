@@ -37,7 +37,7 @@
 				</div>
 			</div>
 			<div class="pull-right">
-				<button value="Cancel" class="btn wizbtn btn-danger">Cancel</button>
+				<a href="home"><button value="Cancel" class="btn wizbtn btn-danger">Cancel</button></a>
 				<button type="submit" value="Continue" class="btn wizbtn btn-success">Continue</button>
 			</div>
 			<p class="required"><span class="glyphicon glyphicon-asterisk"></span> Required Field</p>

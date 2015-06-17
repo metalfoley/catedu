@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.DaoLesson;
 import program.CurrentUser;
 import base.Auth;
 import base.DBConn;
@@ -40,9 +41,9 @@ public class loginController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
-		response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
-		response.setDateHeader("Expires", 0); // Proxies.
+//		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
+//		response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
+//		response.setDateHeader("Expires", 0); // Proxies.
 		HttpSession session = request.getSession();
 		@SuppressWarnings("unused")
 		DBConn db = new DBConn();
@@ -78,6 +79,7 @@ public class loginController extends HttpServlet {
 					setError(request,response);
 				}
 				else {
+					request.setAttribute("allLessons", DaoLesson.getAllLessons());
 					session.setAttribute("currentUser", currentUser);
 					request.getRequestDispatcher("index.jsp").forward(request,response);
 				}

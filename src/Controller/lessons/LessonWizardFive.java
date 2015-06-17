@@ -50,23 +50,24 @@ public class LessonWizardFive extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		HashMap<String, ArrayList<String>> tempHash = new HashMap<String, ArrayList<String>>();
+		ArrayList<String> tempArr = null;
 		Lesson tempLesson = (Lesson) session.getAttribute("tempLesson");
 		
 		String[] scienceCore = request.getParameterValues("Science");
 		String[] mathCore = request.getParameterValues("Math");
 		String[] historyCore = request.getParameterValues("History");
 		
+		@SuppressWarnings("unused")
+		DBConn db = new DBConn();
+		DBConn.openConn();
 		if(scienceCore.length > 0 && scienceCore != null) {
-			tempHash.put("Science", new ArrayList<String>(Arrays.asList(scienceCore)));
-			// Add to DB
+			addToDb(tempHash, scienceCore, tempLesson, tempArr, "Science");
 		}
 		if(mathCore.length > 0 && mathCore != null) {
-			tempHash.put("Math", new ArrayList<String>(Arrays.asList(mathCore)));
-			// Add to DB
+			addToDb(tempHash, mathCore, tempLesson, tempArr, "Math");
 		}
 		if(historyCore.length > 0 && historyCore != null) {
-			tempHash.put("History", new ArrayList<String>(Arrays.asList(historyCore)));
-			// Add to DB
+			addToDb(tempHash, historyCore, tempLesson, tempArr, "History");
 		}
 		tempLesson.setClassCoreLink(tempHash);
 
@@ -76,6 +77,7 @@ public class LessonWizardFive extends HttpServlet {
 		request.getRequestDispatcher("/lessoncreatewiz5.jsp").forward(request, response);
 	}
 	
+	// Creates a HashMap of assessment types with their corresponding id
 	private HashMap<String,Integer> createAssessmentTypes() {
 		assessments = new HashMap<String,Integer>();
 		ResultSet rs;
@@ -96,6 +98,77 @@ public class LessonWizardFive extends HttpServlet {
 		}
 		
 		return assessments;
+	}
+	
+	/**
+	 * Gets the ID of the current core standard
+	 * @param core the core standard being used
+	 * @return the id held in the database
+	 */
+	private int getCoreId(String core) {
+		int val = 0;
+		switch(core) {
+			case "Core 1":
+				val = 1;
+				break;
+			case "Core 2":
+				val = 2;
+				break;
+			case "Core 3":
+				val = 3;
+				break;
+			case "Core 4":
+				val = 4;
+				break;
+			case "Core 5":
+				val = 5;
+				break;
+			case "Core 6":
+				val = 6;
+				break;
+		}
+		return val;
+	}
+	
+	/**
+	 * Gets the id of the current class 
+	 * @param classes the class being used
+	 * @return the class record number in the database
+	 */
+	private int getClassId(String classes) {
+		int val = 0;
+		switch(classes.toLowerCase()) {
+		case "science":
+			val = 1;
+			break;
+		case "math":
+			val = 2;
+			break;
+		case "history":
+			val = 3;
+			break;
+		}
+		return val;
+	}
+	
+	/**
+	 * Takes an array and adds it to the lessons HashMap, as well as the CoreStandard_Class_Lesson_Link table
+	 * @param hash The HashMap to be used
+	 * @param str The array of core standards
+	 * @param lesson The lesson being updated
+	 * @param tempArr The temporary ArrayList being used
+	 */
+	private void addToDb(HashMap<String, ArrayList<String>> hash, String[] str, Lesson lesson, ArrayList<String> tempArr, String className) {
+		tempArr = new ArrayList<String>(Arrays.asList(str));
+		hash.put("Science", tempArr);
+		int lessonId = lesson.getId();
+		for(String val : tempArr) {
+			try {
+				DBConn.update("INSERT INTO CoreStandard_Class_Lesson_Link (CoreStandardID,ClassID,LessonID) VALUES ('"+getCoreId(val)+"','"+getClassId(className)+"','"+lessonId+"')");
+			} catch (SQLException e) {
+				Filo.log(e.getMessage());
+			}
+		}
 	}
 
 }

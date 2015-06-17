@@ -8,6 +8,8 @@ public abstract class Employee extends Person {
 		super(id, firstName, lastName, address, city, state, zipCode, phoneOne,
 				phoneTwo, email, active);
 	}
+	
+	public Employee(){}
 
 	private District district;
 

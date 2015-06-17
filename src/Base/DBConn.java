@@ -10,7 +10,7 @@ public class DBConn {
 	static private ResultSet rs;
 	static private Connection conn;
 	
-	public DBConn()
+	public static void connect()
 	{
 		try{
 			Class.forName("net.sourceforge.jtds.jdbc.Driver");
@@ -21,6 +21,7 @@ public class DBConn {
 	
 	public static void createDB() throws SQLException
 	{
+		connect();
 		conn = DriverManager.getConnection(connectionString, userName, password);
 		try
 		{
@@ -90,7 +91,7 @@ public class DBConn {
 	}
 	
 	public static void openConn() {
-	
+		connect();
 		try {
 			conn = DriverManager.getConnection(connString, userName, password);
 		} catch (SQLException e) {
