@@ -1,6 +1,6 @@
 package program;
 
-public abstract class Employee extends Person {
+public class Employee extends Person {
 	
 	public Employee(int id, String firstName, String lastName, String address,
 			String city, String state, String zipCode, String phoneOne,

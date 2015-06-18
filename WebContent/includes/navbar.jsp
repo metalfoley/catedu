@@ -9,8 +9,8 @@
     </div>
     <div class="pull-right" id="navlinks">
     	<c:if test="${currentUser.getRole() != null}">
-    	<a href="logout">Logout</a>
-    	<a href="mainDashboard">${currentUser.getFirstName()} ${currentUser.getLastName()} / ${currentUser.getRole()}</a>
+    	<p><a href="logout">Logout</a></p>
+    	<p><a href="home">${currentUser.getFirstName()} ${currentUser.getLastName()} / ${currentUser.getRole()}</a></p>
     	</c:if>
     </div>
 </nav>

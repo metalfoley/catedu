@@ -48,7 +48,7 @@ public class LessonWizardThree extends HttpServlet {
 		ArrayList<Lesson> lessons = new ArrayList<Lesson>();
 		
 		String enhancements = request.getParameter("enhancements");
-		String extentions = request.getParameter("extentions");
+		String extensions = request.getParameter("extensions");
 		String details = request.getParameter("details");
 		String materials = request.getParameter("materials");
 		boolean success = true;
@@ -71,7 +71,7 @@ public class LessonWizardThree extends HttpServlet {
 		}
 		
 		try {
-			DBConn.update("UPDATE Lesson SET Enhancements='"+enhancements+"', Extentions='"+extentions+"', Details='"+details+"', Materials='"+materials+"' WHERE ID='"+tempLesson.getId()+"'");
+			DBConn.update("UPDATE Lesson SET Enhancements='"+enhancements+"', Extensions='"+extensions+"', Details='"+details+"', Materials='"+materials+"' WHERE ID='"+tempLesson.getId()+"'");
 		} catch (SQLException e) {
 			Filo.log(e.getMessage());
 			success = false;
@@ -81,7 +81,7 @@ public class LessonWizardThree extends HttpServlet {
 		
 		if(success == true) {	
 			tempLesson.setEnhancements(enhancements);
-			tempLesson.setExtensions(extentions);
+			tempLesson.setExtensions(extensions);
 			tempLesson.setDetails(details);
 			tempLesson.setMaterials(materials);
 

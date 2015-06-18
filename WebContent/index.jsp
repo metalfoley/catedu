@@ -13,7 +13,7 @@
           <a href="#"><button type="button" class="btn btn-primary">Add Student</button></a>
         </div>
         <div class="row">
-          <a href="#"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Deactivate</button></a>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Deactivate</button>
           <a href="#"><button type="button" class="btn btn-primary">Suggest Move</button></a>
         </div>
       </div>

@@ -19,9 +19,9 @@
 			</div>
 			<div class="form-group container col-sm-6 lessonTwo">
 				<div class="row">
-					<label class="col-sm-4 control-label" for="extensions">Extentions: </label>
+					<label class="col-sm-4 control-label" for="extensions">Extensions: </label>
 					<div class="col-sm-8">
-						<textarea class="form-control" rows="5" name="extentions"></textarea>
+						<textarea class="form-control" rows="5" name="extensions"></textarea>
 					</div>
 				</div>
 			</div>

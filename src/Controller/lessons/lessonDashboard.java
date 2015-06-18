@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.DaoLesson;
 import program.Lesson;
 import base.DBConn;
 import base.Filo;
@@ -33,10 +34,9 @@ public class lessonDashboard extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		Lesson tempLesson = (Lesson) session.getAttribute("tempLesson");
-		Filo.log(tempLesson.getClassCoreLink().get("Science").get(0));
-		
+		DaoLesson dl = new DaoLesson();
+		int id = Integer.parseInt(request.getParameter("lid"));
+		request.setAttribute("lesson", dl.createLesson(id));
 		request.getRequestDispatcher("/lessonDashboard.jsp").forward(request, response);
 	}
 

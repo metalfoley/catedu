@@ -13,8 +13,8 @@
           <a href="#"><button type="button" class="btn btn-primary">Update Lesson</button></a>
         </div>
         <div class="row">
-          <a href="#"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Deactivate</button></a>
-          <a href="#"><button type="button" class="btn btn-primary">Summary</button></a>
+          <button type="button" class="btn btn-primary">Deactivate</button>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#lessonSummaryModal">Summary</button>
         </div>
       </div>
 
@@ -27,12 +27,12 @@
             </div>
             <div class="panel-body">
             	<div class="pull-left">
-		            <p>Name: ${tempLesson.getName()}</p>
-		            <p>Author: ${tempLesson.getAuthor().getFirstName()} ${tempLesson.getAuthor().getLastName()}</p>
-		            <p>Short Description: ${tempLesson.getShortDescription()}</p>
+		            <p>Name: ${lesson.getName()}</p>
+		            <p>Author: ${lesson.getAuthor().getFirstName()} ${lesson.getAuthor().getLastName()}</p>
+		            <p>Short Description: ${lesson.getShortDescription()}</p>
             	</div>
             	<div class="pull-right">
-            		<p>Lead Lesson: ${tempLesson.getLeadLesson()}</p>
+            		<p>Lead Lesson: ${lesson.getLeadLesson()}</p>
             	</div>
             </div>
           </div>
@@ -56,6 +56,7 @@
       </div>
 
     </div>
+    <%@ include file="includes/modals/lessonSummaryModal.jsp" %>
 <%@ include file="includes/footer.jsp" %>
 </body>
 </html>

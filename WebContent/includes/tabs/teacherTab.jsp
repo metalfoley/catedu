@@ -32,7 +32,7 @@
 	                  	<c:forEach items="${allLessons}" var="lesson">
 	                  		<tr>
 	                  			<th scope="row">${lesson.getId() }</th>
-	                  			<td>${lesson.getName() }</td>
+	                  			<td><a href="lessondashboard?lid=${lesson.getId() }">${lesson.getName() }</a></td>
 	                  			<td>${lesson.getShortDescription() }</td>
 	                  			<td>${lesson.getAuthor().getFirstName()} ${lesson.getAuthor().getLastName()}</td>
 	                  		</tr>

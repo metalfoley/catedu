@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import program.Councelor;
+import program.Employee;
 import program.Lesson;
 import program.Person;
 import program.Principle;
@@ -18,26 +19,32 @@ public class ExtractLesson {
 	/**
 	 * Creates an ArrayList of all lessons in the system
 	 * @param rs
-	 * @return
+	 * @return An array of all lessons from the db
 	 */
 	public static ArrayList<Lesson> extractAllLessons(ResultSet rs) {
 		ArrayList<Lesson> lessonArr = new ArrayList<Lesson>();
-		Lesson tempLesson = new Lesson();
+		Person author;
+		Lesson tempLesson;
 		int lessonID;
 		try {
 			while(rs.next()) {
-				lessonID = rs.getInt("ID");
+				tempLesson = new Lesson();
+				author = new Employee();
+				lessonID = rs.getInt("LessonID");
 				tempLesson.setId(lessonID);
 				tempLesson.setName(rs.getString("Name"));
 				tempLesson.setShortDescription(rs.getString("Short_Description"));
-				tempLesson.setAuthor(DaoLesson.getLessonAuthor(rs.getInt("Author")));
-				tempLesson.isAdvanced();
-				tempLesson.setFullDescription("Full_Description");
-				tempLesson.setEnhancements("Enhancements");
-				tempLesson.setExtensions("Extentions");
-				tempLesson.setDetails("Details");
-				tempLesson.setMaterials("Materials");
-				tempLesson.setLeadLesson("LeadLesson");
+				author.setId(rs.getInt("PersonID"));
+				author.setFirstName(rs.getString("AuthorFName"));
+				author.setLastName(rs.getString("AuthorLName"));
+				tempLesson.setAuthor(author);
+				tempLesson.setAdvanced(rs.getBoolean("Advanced"));
+				tempLesson.setFullDescription(rs.getString("Full_Description"));
+				tempLesson.setEnhancements(rs.getString("Enhancements"));
+				tempLesson.setExtensions(rs.getString("Extensions"));
+				tempLesson.setDetails(rs.getString("Details"));
+				tempLesson.setMaterials(rs.getString("Materials"));
+				tempLesson.setLeadLesson(rs.getString("LeadLesson"));
 				tempLesson.setClassCoreLink(DaoLesson.getLessonHashMap(lessonID));
 				lessonArr.add(tempLesson);
 			}
@@ -47,13 +54,47 @@ public class ExtractLesson {
 		return lessonArr;
 	}
 	
+	public static Lesson extractLesson(ResultSet rs) {
+		Person author;
+		Lesson tempLesson = null;
+		int lessonID;
+		try {
+			while(rs.next()) {
+				tempLesson = new Lesson();
+				author = new Employee();
+				lessonID = rs.getInt("LessonID");
+				tempLesson.setId(lessonID);
+				tempLesson.setName(rs.getString("Name"));
+				tempLesson.setShortDescription(rs.getString("Short_Description"));
+				author.setId(rs.getInt("PersonID"));
+				author.setFirstName(rs.getString("AuthorFName"));
+				author.setLastName(rs.getString("AuthorLName"));
+				tempLesson.setAuthor(author);
+				tempLesson.setAdvanced(rs.getBoolean("Advanced"));
+				tempLesson.setFullDescription(rs.getString("Full_Description"));
+				tempLesson.setEnhancements(rs.getString("Enhancements"));
+				tempLesson.setExtensions(rs.getString("Extensions"));
+				tempLesson.setDetails(rs.getString("Details"));
+				tempLesson.setMaterials(rs.getString("Materials"));
+				tempLesson.setLeadLesson(rs.getString("LeadLesson"));
+				tempLesson.setAssessInfo(rs.getString("AssessmentInfo"));
+				tempLesson.setAssessLink(rs.getString("AssessmentLink"));
+				tempLesson.setAssessType(rs.getString("Assessment_Type"));
+				tempLesson.setClassCoreLink(DaoLesson.getLessonHashMap(lessonID));
+			}
+		} catch (SQLException e) {
+			Filo.log("extractLesson.extractAllLessons: " + e.getMessage());
+		}
+		return tempLesson;
+	}
+	
 	/**
 	 * Extracts the lessons author and returns as the corresponding object
 	 * @param rs
 	 * @return
 	 */
 	public static Person extractAuthor(ResultSet rs) {
-		Person person = new Teacher();
+		Person person = null;
 		try {
 			if(rs.next()) {
 				switch(rs.getString("Role").toLowerCase()) {

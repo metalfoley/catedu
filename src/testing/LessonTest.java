@@ -8,7 +8,12 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import program.Lesson;
+import dao.DaoLesson;
+
 public class LessonTest {
+	DaoLesson dl;
+	Lesson lesson;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -27,8 +32,17 @@ public class LessonTest {
 	}
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testCreateLessonPos() {
+		dl = new DaoLesson();
+		lesson = dl.createLesson(2);
+		assertEquals(lesson.getName(), "Memoir Techniques");
+	}
+	
+	@Test
+	public void testCreateLessonNeg(){
+		dl = new DaoLesson();
+		lesson = dl.createLesson(1);
+		assertNotEquals(lesson.getName(), "Memoir Techniques");
 	}
 
 }

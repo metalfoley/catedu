@@ -85,6 +85,19 @@ ul.nav.nav-tabs {
 	padding-right: 0px !important;
 }
 
+.lessonModal {
+	width: 90%;
+}
+
+.lessonModalHead {
+	width: 100%;
+}
+
+.modalLead {
+	font-weight: bold;
+	font-size: 1.25rem;
+}
+
 /*****************************************************************
  							 DASHBOARD
 *****************************************************************/
@@ -249,6 +262,10 @@ nav #banner img{
 .navbar-brand img {
  	width: 5.7rem;
   	display: inline-block;
+}
+
+nav p {
+	margin: 0;
 }
 
 /*****************************************************************

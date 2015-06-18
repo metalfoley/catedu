@@ -43,6 +43,7 @@ public class LessonWizardFinal extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		Lesson tempLesson = (Lesson) session.getAttribute("tempLesson");
+		int id = tempLesson.getId();
 		String assessmentType = request.getParameter("assessments");
 		String assessmentLink = request.getParameter("file");
 		String assessmentInfo = request.getParameter("assessInfo");
@@ -59,8 +60,9 @@ public class LessonWizardFinal extends HttpServlet {
 		tempLesson.setAssessType(assessmentType);
 		tempLesson.setAssessLink(assessmentLink);
 		tempLesson.setAssessInfo(assessmentInfo);
+		session.removeAttribute("tempLesson");
 		
-		response.sendRedirect("lessondashboard");
+		response.sendRedirect("lessondashboard?lid="+id);
 	}
 
 }

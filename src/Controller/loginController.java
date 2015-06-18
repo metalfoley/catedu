@@ -13,7 +13,6 @@ import javax.servlet.http.HttpSession;
 
 import dao.DaoLesson;
 import program.CurrentUser;
-import base.Auth;
 import base.DBConn;
 import base.Filo;
 
@@ -79,7 +78,8 @@ public class loginController extends HttpServlet {
 					setError(request,response);
 				}
 				else {
-					request.setAttribute("allLessons", DaoLesson.getAllLessons());
+					DaoLesson dl = new DaoLesson();
+					request.setAttribute("allLessons", dl.getAllLessons());
 					session.setAttribute("currentUser", currentUser);
 					request.getRequestDispatcher("index.jsp").forward(request,response);
 				}
