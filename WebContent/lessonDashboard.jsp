@@ -27,12 +27,15 @@
             </div>
             <div class="panel-body">
             	<div class="pull-left">
-		            <p>Name: ${lesson.getName()}</p>
-		            <p>Author: ${lesson.getAuthor().getFirstName()} ${lesson.getAuthor().getLastName()}</p>
-		            <p>Short Description: ${lesson.getShortDescription()}</p>
+		            <p><span class="personalSummary">Name: </span>${lesson.getName()}</p>
+		            <p><span class="personalSummary">Author: </span>${lesson.getAuthor().getFirstName()} ${lesson.getAuthor().getLastName()}</p>
+		            <p><span class="personalSummary">Short Description: </span>${lesson.getShortDescription()}</p>
             	</div>
             	<div class="pull-right">
-            		<p>Lead Lesson: ${lesson.getLeadLesson()}</p>
+            		<p>
+            			<span class="personalSummary">Lead Lesson: </span>
+            				<a href="lessondashboard?lid=${lesson.getLeadID()}">${lesson.getLeadLesson()}</a>
+            		</p>
             	</div>
             </div>
           </div>

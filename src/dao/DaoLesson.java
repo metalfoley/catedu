@@ -18,12 +18,12 @@ public class DaoLesson {
 	
 	private String createLessonQuery() {
 		StringBuilder queryBuild = new StringBuilder();
-		queryBuild.append(" SELECT Lesson.ID AS LessonID,Lesson.Name,Lesson.Short_Description,Lesson.Full_Description,Lesson.Advanced,Enhancements,Lesson.Extensions,");
-		queryBuild.append("Lesson.Details,Lesson.Materials,Lesson.LeadLesson,Assessment_Types.Assessment_Type,Lesson.AssessmentLink,Lesson.AssessmentInfo,");
-		queryBuild.append("Person.ID AS PersonID,Person.FirstName AS AuthorFName,Person.LastName AS AuthorLName FROM Lesson ");
+		queryBuild.append("SELECT Lesson.ID AS LessonID,Lesson.Name,Lesson.Short_Description,Lesson.Full_Description,Lesson.Advanced,Lesson.Enhancements,Lesson.Extensions,");
+		queryBuild.append("Lesson.Details,Lesson.Materials,Lesson.LeadLesson AS LeadID,L2.Name AS LeadName,Assessment_Types.Assessment_Type,Lesson.AssessmentLink,Lesson.AssessmentInfo,");
+		queryBuild.append("Person.ID AS PersonID,Person.FirstName AS AuthorFName,Person.LastName AS AuthorLName FROM Lesson Lesson ");
+		queryBuild.append("FULL JOIN Lesson L2 ON Lesson.LeadLesson = L2.ID ");
 		queryBuild.append("INNER JOIN Person ON Lesson.Author=Person.ID ");
 		queryBuild.append("INNER JOIN Assessment_Types ON Lesson.AssessmentType=Assessment_Types.ID");
-		
 		return queryBuild.toString();
 	}
 	
@@ -34,6 +34,11 @@ public class DaoLesson {
 		return lessons;
 	}
 	
+	/**
+	 * Creates a singles lesson Object
+	 * @param id The ID of the Lesson to be created
+	 * @return Lesson
+	 */
 	public Lesson createLesson(int id) {
 		query = createLessonQuery();
 		DBConn.openConn();

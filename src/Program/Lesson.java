@@ -13,6 +13,7 @@ public class Lesson {
 	private String extensions;
 	private String details;
 	private String materials;
+	private int LeadID;
 	private String leadLesson;
 	private String assessType;
 	private String assessLink;
@@ -147,6 +148,14 @@ public class Lesson {
 
 	public void setAuthor(Person author) {
 		this.author = author;
+	}
+
+	public int getLeadID() {
+		return LeadID;
+	}
+
+	public void setLeadID(int leadID) {
+		LeadID = leadID;
 	}
 	
 }

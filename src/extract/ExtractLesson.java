@@ -44,7 +44,8 @@ public class ExtractLesson {
 				tempLesson.setExtensions(rs.getString("Extensions"));
 				tempLesson.setDetails(rs.getString("Details"));
 				tempLesson.setMaterials(rs.getString("Materials"));
-				tempLesson.setLeadLesson(rs.getString("LeadLesson"));
+				tempLesson.setLeadID(rs.getInt("LeadID"));
+				tempLesson.setLeadLesson(rs.getString("LeadName"));
 				tempLesson.setClassCoreLink(DaoLesson.getLessonHashMap(lessonID));
 				lessonArr.add(tempLesson);
 			}
@@ -76,7 +77,8 @@ public class ExtractLesson {
 				tempLesson.setExtensions(rs.getString("Extensions"));
 				tempLesson.setDetails(rs.getString("Details"));
 				tempLesson.setMaterials(rs.getString("Materials"));
-				tempLesson.setLeadLesson(rs.getString("LeadLesson"));
+				tempLesson.setLeadID(rs.getInt("LeadID"));
+				tempLesson.setLeadLesson(rs.getString("LeadName"));
 				tempLesson.setAssessInfo(rs.getString("AssessmentInfo"));
 				tempLesson.setAssessLink(rs.getString("AssessmentLink"));
 				tempLesson.setAssessType(rs.getString("Assessment_Type"));
