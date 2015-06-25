@@ -84,7 +84,7 @@ public class LessonWizardThree extends HttpServlet {
 			tempLesson.setExtensions(extensions);
 			tempLesson.setDetails(details);
 			tempLesson.setMaterials(materials);
-
+			request.setAttribute("tempLesson", tempLesson);
 			request.setAttribute("lessons", lessons);
 			request.getRequestDispatcher("/lessoncreatewiz3.jsp").forward(request, response);
 		}

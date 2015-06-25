@@ -28,9 +28,10 @@ public class DaoLesson {
 	}
 	
 	public ArrayList<Lesson> getAllLessons() {
+		DBConn.openConn();
 		query = createLessonQuery();
-		rs = DBConn.query(query);
-		ArrayList<Lesson> lessons = ExtractLesson.extractAllLessons(rs);
+		ArrayList<Lesson> lessons = ExtractLesson.extractAllLessons(DBConn.query(query));
+		DBConn.closeConn();
 		return lessons;
 	}
 	

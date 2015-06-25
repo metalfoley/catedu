@@ -3,12 +3,8 @@ package program;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Lesson {
+public class Lesson extends LessonPlan{
 	
-	private int id;
-	private String name;
-	private String shortDescription;
-	private String fullDescription;
 	private String enhancements;
 	private String extensions;
 	private String details;
@@ -25,33 +21,9 @@ public class Lesson {
 	public Lesson() {}
 	
 	public Lesson(String name, boolean isAdvanced) {
-		this.name = name;
+		super(name);
 		this.isAdvanced = isAdvanced;
 		classCoreLink= new HashMap<String, ArrayList<String>>();
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getShortDescription() {
-		return shortDescription;
-	}
-
-	public void setShortDescription(String shortDescription) {
-		this.shortDescription = shortDescription;
-	}
-
-	public String getFullDescription() {
-		return fullDescription;
-	}
-
-	public void setFullDescription(String fullDescription) {
-		this.fullDescription = fullDescription;
 	}
 
 	public String getEnhancements() {
@@ -92,14 +64,6 @@ public class Lesson {
 
 	public void setAdvanced(boolean isAdvanced) {
 		this.isAdvanced = isAdvanced;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public HashMap<String, ArrayList<String>> getClassCoreLink() {

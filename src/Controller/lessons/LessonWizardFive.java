@@ -73,6 +73,7 @@ public class LessonWizardFive extends HttpServlet {
 
 		assessments = createAssessmentTypes();
 		
+		request.setAttribute("tempLesson", tempLesson);
 		request.setAttribute("assessments", assessments);
 		request.getRequestDispatcher("/lessoncreatewiz5.jsp").forward(request, response);
 	}

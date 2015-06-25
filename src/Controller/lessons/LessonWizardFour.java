@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.DaoClass;
 import program.Lesson;
 import base.DBConn;
 import base.Filo;
@@ -46,7 +47,6 @@ public class LessonWizardFour extends HttpServlet {
 		Lesson tempLesson = (Lesson) session.getAttribute("tempLesson");
 		int leadLesson;
 		ArrayList<String> coreStandards = new ArrayList<String>();
-		ArrayList<String> classes = new ArrayList<String>();
 		ResultSet rs;
 		@SuppressWarnings("unused")
 		DBConn conn = new DBConn();
@@ -89,19 +89,9 @@ public class LessonWizardFour extends HttpServlet {
 				Filo.log(e.getMessage());
 			}
 			
-			// Get all classes
-			rs = DBConn.query("Select Name FROM Classes");
-			try {
-				while(rs.next()) {
-					classes.add(rs.getString("Name"));
-				}
-			} catch (SQLException e1) {
-				Filo.log(e1.getMessage());
-			}
-			
 			DBConn.closeConn();
-			
-			request.setAttribute("classes", classes);
+			request.setAttribute("tempLesson", tempLesson);
+			request.setAttribute("classes", DaoClass.getClasses());
 			request.setAttribute("coreStandards", coreStandards);
 			request.getRequestDispatcher("/lessoncreatewiz4.jsp").forward(request, response);
 		}

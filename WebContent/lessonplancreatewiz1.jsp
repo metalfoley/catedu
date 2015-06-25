@@ -8,7 +8,7 @@
 		<c:if test="${error}">
 			<p id="wizError">ERROR ERROR ERROR ERROR ERROR ERROR ERRROR</p>
 		</c:if>
-		<form class="form-horizontal row col-md-11" action="lessonplanwizard" method="post">
+		<form class="form-horizontal row col-md-11" action="LessonPlanWizardTwo" method="post">
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="name">
 					<span class="glyphicon glyphicon-asterisk"></span> 
@@ -19,9 +19,15 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-2 control-label" for="description">Description: </label>
+				<label class="col-sm-2 control-label" for="shortdescription">Short Description: </label>
 				<div class="col-sm-10">
-					<textarea class="form-control" name="description"></textarea>
+					<textarea class="form-control" name="shortdescription" maxlength="250"></textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label" for="fulldescription">Full Description: </label>
+				<div class="col-sm-10">
+					<textarea class="form-control" name="fulldescription" maxlength="250"></textarea>
 				</div>
 			</div>
 			<div class="form-group">
@@ -31,9 +37,9 @@
 				<div class="col-sm-10">
 					<select class="form-control" name="subject" required>
 						<option value="" selected="selected" disabled>Please Select a Subject</option>
-						<option value="history">History</option>
-						<option value="science">Science</option>
-						<option value="math">Math</option>
+						<c:forEach items="${classes}" var="singleClass">
+							<option value="${singleClass.getId()}">${singleClass.getName()}</option>
+						</c:forEach>
 					</select>
 				</div>
 			</div>
@@ -44,5 +50,6 @@
 			<p><span class="glyphicon glyphicon-asterisk"></span> Required Field</p>
 		</form>
 	</div>
+	<%@ include file="includes/footer.jsp" %>
 </body>
 </html>

@@ -13,7 +13,7 @@
 					<select class="form-control" id="coreClass">
 						<option value="" selected="selected" disabled>Please Select a Subject</option>
 						<c:forEach items="${classes}" var="singleClass">
-							<option value="${singleClass}">${singleClass}</option>
+							<option value="${singleClass.getId()}">${singleClass.getName()}</option>
 						</c:forEach>
 					</select>
 				</div>
@@ -29,7 +29,7 @@
 			</c:forEach>
 			
 			<div class="pull-right noHide">
-				<a href="lessondashboard"><button value="Cancel" class="btn wizbtn btn-danger">Cancel</button></a>
+				<a href="lessondashboard?lid=${lesson.getId() }"><button value="Cancel" class="btn wizbtn btn-danger">Cancel</button></a>
 				<button type="submit" value="Continue" class="btn wizbtn btn-success">Continue</button>
 			</div>
 		</form>

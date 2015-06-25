@@ -8,19 +8,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.DaoClass;
+import dao.DaoLessonPlan;
+import program.LessonPlan;
 
 /**
- * Servlet implementation class LessonPlanWizard
+ * Servlet implementation class LessonPlanDashboard
  */
-@WebServlet("/lessonplanwizard")
-public class LessonPlanWizard extends HttpServlet {
+@WebServlet("/lessonplandashboard")
+public class LessonPlanDashboard extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LessonPlanWizard() {
+    public LessonPlanDashboard() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,15 +30,15 @@ public class LessonPlanWizard extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("classes", DaoClass.getClasses());
-		request.getRequestDispatcher("/lessonplancreatewiz1.jsp").forward(request, response);
+		// TODO Auto-generated method stub
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		LessonPlan tempLP = (LessonPlan) request.getSession().getAttribute("lessonPlan");
+		DaoLessonPlan.addLessonsToLessonPlan(tempLP, request);
 	}
 
 }

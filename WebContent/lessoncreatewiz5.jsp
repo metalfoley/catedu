@@ -39,7 +39,7 @@
 				
 			</div>
 			<div class="pull-right">
-				<a href="lessondashboard"><button value="Cancel" class="btn btn-danger">Cancel</button></a>
+				<a href="lessondashboard?lid=${lesson.getId() }"><button value="Cancel" class="btn btn-danger">Cancel</button></a>
 				<button type="submit" value="Finish" class="btn btn-success">Finish</button>
 			</div>
 		</form>
