@@ -10,6 +10,7 @@ public class LessonPlan {
 	protected String fullDescription;
 	private ArrayList<Lesson> lessons = new ArrayList<Lesson>();
 	private int subjectId;
+	private String subject;
 	
 	public LessonPlan() {}
 	
@@ -63,6 +64,14 @@ public class LessonPlan {
 
 	public void setSubjectId(int subject) {
 		this.subjectId = subject;
+	}
+
+	public String getSubject() {
+		return subject;
+	}
+
+	public void setSubject(String subject) {
+		this.subject = subject;
 	}
 	
 }

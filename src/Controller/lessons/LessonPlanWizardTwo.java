@@ -41,8 +41,9 @@ public class LessonPlanWizardTwo extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		DaoLesson dl = new DaoLesson();
-		request.getSession().setAttribute("lessonPlan", DaoLessonPlan.createLessonPlanWiz(request));
-		request.setAttribute("lessonPlan", DaoLessonPlan.createLessonPlanWiz(request));
+		LessonPlan lp = DaoLessonPlan.createLessonPlanWiz(request);
+		request.getSession().setAttribute("lessonPlan", lp);
+		request.setAttribute("lessonPlan", lp);
 		request.setAttribute("lessons", dl.getAllLessons());
 		request.getRequestDispatcher("/lessonplancreatewiz2.jsp").forward(request, response);
 	}

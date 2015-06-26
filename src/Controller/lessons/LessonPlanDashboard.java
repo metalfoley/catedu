@@ -30,15 +30,19 @@ public class LessonPlanDashboard extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		int lpid = Integer.parseInt(request.getParameter("lpid"));
+		request.setAttribute("lp", DaoLessonPlan.createLessonPlanFull(lpid));
+		request.getRequestDispatcher("/lessonplandashboard.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		LessonPlan tempLP = (LessonPlan) request.getSession().getAttribute("lessonPlan");
-		DaoLessonPlan.addLessonsToLessonPlan(tempLP, request);
+		LessonPlan lp = (LessonPlan) request.getSession().getAttribute("lessonPlan");
+		DaoLessonPlan.addLessonsToLessonPlan(lp, request);
+		response.sendRedirect("lessonplandashboard?lpid=" + lp.getId());
+		
 	}
 
 }

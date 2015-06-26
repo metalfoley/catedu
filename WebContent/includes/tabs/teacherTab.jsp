@@ -16,7 +16,26 @@
         <!-- Tab panes -->
         <div class="tab-content">
           <div role="tabpanel" class="tab-pane active" id="home">
-              <p>Lesson Plans</p>
+              <table class="table table-hover">
+	              <thead>
+	              		<tr>
+		               		<th>#</th>
+		               		<th>Name</th>
+		               		<th>Short Description</th>
+		               		<th>Major Subject</th>
+	              		</tr>
+	              	</thead>
+	              	<tbody>
+	               	<c:forEach items="${allLessonPlans}" var="lp">
+	               		<tr>
+	               			<th scope="row">${lp.getId() }</th>
+	               			<td><a href="lessonplandashboard?lpid=${lp.getId() }">${lp.getName() }</a></td>
+	               			<td>${lp.getShortDescription() }</td>
+	               			<td>${lp.getSubject()}</td>
+	               		</tr>
+	               	</c:forEach>
+	              	</tbody>
+            	</table>
           </div>
           <div role="tabpanel" class="tab-pane" id="profile">
               <table class="table table-hover">

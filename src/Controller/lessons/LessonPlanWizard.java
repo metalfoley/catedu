@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import base.DBConn;
 import dao.DaoClass;
 
 /**
@@ -29,6 +30,8 @@ public class LessonPlanWizard extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		if(request.getParameter("lpid") != null)
+			request.setAttribute("lpid", request.getParameter("lpid"));
 		request.setAttribute("classes", DaoClass.getClasses());
 		request.getRequestDispatcher("/lessonplancreatewiz1.jsp").forward(request, response);
 	}

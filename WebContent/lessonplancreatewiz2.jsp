@@ -6,7 +6,7 @@
 <%@ include file="includes/wizardHeader.jsp" %>
 <div class="container wizBody">
 		
-		<form class="form-horizontal row col-md-12" action="LessonPlanWizardTwo" method="post">
+		<form class="form-horizontal row col-md-12" action="lessonplandashboard" method="post">
 			<button class="btn btn-success">Add Lesson</button>
 			
 			<div class="form-group">
@@ -16,7 +16,6 @@
 							<th></th>
 							<th>Name</th>
 							<th>Description</th>
-							<th>Subject</th>
 						</tr>
 					</thead>
 					<tbody>
