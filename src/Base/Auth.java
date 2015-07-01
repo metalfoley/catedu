@@ -1,14 +1,16 @@
 package base;
 
-import program.CurrentUser;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 public class Auth {
 	
-	public static boolean checkAuth(CurrentUser cu) {
-		String userName = cu.getUserName();
-		if(userName != null && !userName.equals("")) {
-			return true;
+	public static boolean checkAuth(HttpSession session, HttpServletRequest request) {
+		session = request.getSession(false);
+		if(session.getAttribute("currentUser") == null || session == null) {
+			return false;
 		}
-		return false;
+		return true;
 	}
 }

@@ -33,16 +33,15 @@ public class mainDashboard extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		currentUser = (CurrentUser) session.getAttribute("currentUser");
-		Filo.log(currentUser.getUserName());
-		if(Auth.checkAuth(currentUser) == true) {
+		if(Auth.checkAuth(session, request)) {
+			currentUser = (CurrentUser) session.getAttribute("currentUser");
 			DaoLesson dl = new DaoLesson();
 			request.setAttribute("allLessons", dl.getAllLessons());
 			request.setAttribute("allLessonPlans", DaoLessonPlan.getAllLessonPlans());
 			request.getRequestDispatcher("/index.jsp").forward(request,response);
+		} else {
+			response.sendRedirect("login");
 		}
-		else
-			response.sendRedirect("login.jsp");
 	}
 
 	/**

@@ -336,6 +336,16 @@ nav p {
   	top: -4px;
 }
 
+legend {
+	color: #74907C;
+	border-bottom: 1px solid #74907C;
+	font-weight: 700;
+}
+
+fieldset:not(:first-child) {
+	margin-top: 4rem;
+}
+
 /*****************************************************************
  							 FORM
 *****************************************************************/

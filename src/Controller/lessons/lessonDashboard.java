@@ -1,19 +1,19 @@
 package controller.lessons;
 
 import java.io.IOException;
-import java.sql.ResultSet;
+
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
 
 import dao.DaoLesson;
-import program.Lesson;
-import base.DBConn;
-import base.Filo;
+
+import base.Auth;
+
 
 /**
  * Servlet implementation class lessonDashboard
@@ -34,10 +34,16 @@ public class lessonDashboard extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		DaoLesson dl = new DaoLesson();
-		int id = Integer.parseInt(request.getParameter("lid"));
-		request.setAttribute("lesson", dl.createLesson(id));
-		request.getRequestDispatcher("/lessonDashboard.jsp").forward(request, response);
+		DaoLesson dl;
+		int id;
+		if(Auth.checkAuth(request.getSession(), request)){
+			dl = new DaoLesson();
+			id = Integer.parseInt(request.getParameter("lid"));
+			request.setAttribute("lesson", dl.createLesson(id));
+			request.getRequestDispatcher("/lessonDashboard.jsp").forward(request, response);
+		} else {
+			response.sendRedirect("login");
+		}
 	}
 
 	/**

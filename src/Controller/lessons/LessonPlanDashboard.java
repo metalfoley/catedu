@@ -7,7 +7,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import base.Auth;
 import dao.DaoLessonPlan;
 import program.LessonPlan;
 
@@ -30,9 +32,15 @@ public class LessonPlanDashboard extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int lpid = Integer.parseInt(request.getParameter("lpid"));
-		request.setAttribute("lp", DaoLessonPlan.createLessonPlanFull(lpid));
-		request.getRequestDispatcher("/lessonplandashboard.jsp").forward(request, response);
+		HttpSession session = request.getSession();
+		int lpid;
+		if(Auth.checkAuth(session, request)) {
+			lpid = Integer.parseInt(request.getParameter("lpid"));
+			request.setAttribute("lp", DaoLessonPlan.createLessonPlanFull(lpid));
+			request.getRequestDispatcher("/lessonplandashboard.jsp").forward(request, response);
+		} else {
+			response.sendRedirect("login");
+		}
 	}
 
 	/**

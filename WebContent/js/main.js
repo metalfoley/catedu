@@ -1,6 +1,10 @@
 $(document).ready(function() {
 	
-	// Toggle password visibilty when checkbox is checked
+	/*****************************************************
+	 * 
+	 * Show and hide password on login screen based on checkbox change
+	 * 
+	 ******************************************************/
 	$("#login").on('change', "#showPass", function() {
 		if($("#showPass").is(":checked")){
 			$("#password").prop('type', 'text');
@@ -10,7 +14,26 @@ $(document).ready(function() {
 		}
 	});
 	
-	//Tabs on main dashboard
+	/*****************************************************
+	 * 
+	 * Enable or disable selectbox on addstudentwiz5
+	 * 
+	 ******************************************************/
+	
+	$("#addstudent5").on('change', "#ellCheck", function() {
+		if($("#ellCheck").is(":checked")){
+			$("#langselect").prop('disabled', false);
+		} 
+        else{
+			$("#langselect").prop('disabled', true);
+		}
+	});
+	
+	/*****************************************************
+	 * 
+	 * Tabs on main dashboard
+	 * 
+	 ******************************************************/
 	$('#myTab a[href="#home"]').click(function (e) {
 	  e.preventDefault()
 	  $(this).tab('show')
@@ -28,7 +51,11 @@ $(document).ready(function() {
 	  $(this).tab('show')
 	})
 	
-	// Lesson Wizard 4
+	/*****************************************************
+	 * 
+	 * Lesson Wizard 4
+	 * 
+	 ******************************************************/
 	$('#coreClass').change(function() {
 		var value = $("#coreClass option:selected").val();
 		var divString = "#" + value;
