@@ -8,53 +8,53 @@
 		<c:if test="${error}">
 			<p id="wizError">ERROR ERROR ERROR ERROR ERROR ERROR ERRROR</p>
 		</c:if>
-		<form class="form-horizontal row col-md-12" action="#" method="post">
+		<form class="form-horizontal row col-md-12" action="addstudentwizard" method="POST">
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="fname">
 					<span class="glyphicon glyphicon-asterisk"></span> 
 					Name:
 				</label>
 				<div class="col-sm-3">
-					<input class="form-control" placeholder="Sam" type="text" name="fname" pattern="[a-zA-Z]{0,50}" required />
+					<input class="form-control" placeholder="Sam" type="text" name="fname" value="" pattern="[a-zA-Z]{0,50}" required />
 				</div>
 				<div class="col-sm-3">
-					<input class="form-control" placeholder="Stan" type="text" pattern="[a-zA-Z]{0,50}" name="mname" />
+					<input class="form-control" placeholder="Stan" type="text" pattern="[a-zA-Z]{0,50}" value="" name="mname" />
 				</div>
 				<div class="col-sm-4">
-					<input class="form-control" type="text" placeholder="Smith" pattern="[a-zA-Z]{0,50}" name="lname" required />
+					<input class="form-control" type="text" placeholder="Smith" pattern="[a-zA-Z]{0,50}" value="" name="lname" required />
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="address">Address: </label>
-				<div class="col-sm-10">
-					<input class="form-control" placeholder="555 A St." type="text" name="address" />
+				<div class="col-sm-6">
+					<input class="form-control" placeholder="555 A St." type="text" value="" name="address" />
 				</div>
 			</div>
 			<div class="form-group">
-				<div class="col-sm-7 col-sm-offset-2">
-					<input class="form-control" type="text" placeholder="Atlanta" name="city" />
+				<div class="col-sm-3 col-sm-offset-2">
+					<input class="form-control" type="text" placeholder="Atlanta" value="" name="city" />
 				</div>
 				<div class="col-sm-1">
-					<input class="form-control" type="text" name="state" placeholder="OR" pattern="[a-zA-Z]{2}" />
+					<input class="form-control" type="text" name="state" placeholder="OR" value="" pattern="[a-zA-Z]{2}" />
 				</div>
 				<div class="col-sm-2">
-					<input class="form-control" type="text" name="zip" placeholder="55555" pattern="(\d{5}([\-]\d{4})?)" />
+					<input class="form-control" type="text" name="zip" placeholder="55555" value="" pattern="(\d{5}([\-]\d{4})?)" />
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="phone1">Phone1: </label>
-				<div class="col-sm-10">
-					<input class="form-control phone" placeholder="(555) 555-5555" type="tel" name="phone1" pattern="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}"/>
+				<div class="col-sm-2">
+					<input class="form-control phone" value="" placeholder="(555) 555-5555" type="tel" name="phone1" pattern="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}"/>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="phone2">Phone2: </label>
-				<div class="col-sm-10">
-					<input class="form-control phone" placeholder="(555) 555-5555" type="tel" name="phone2" pattern="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}"/>
+				<div class="col-sm-2">
+					<input class="form-control phone" value="" placeholder="(555) 555-5555" type="tel" name="phone2" pattern="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}"/>
 				</div>
 			</div>
 			<div class="pull-right">
-				<button value="Cancel" class="btn wizbtn btn-danger" onclick="history.back(-1)">Cancel</button>
+				<button value="Cancel" type="button" class="btn wizbtn btn-danger" onclick="history.back(-1)">Cancel</button>
 				<button type="submit" value="Continue" class="btn wizbtn btn-success">Continue</button>
 			</div>
 			<p class="required"><span class="glyphicon glyphicon-asterisk"></span> Required Field</p>

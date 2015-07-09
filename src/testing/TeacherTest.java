@@ -13,8 +13,8 @@ import program.Teacher;
 
 public class TeacherTest {
 	Teacher t;
-	Student s1;
-	Student s2;
+	Student s1 = new Student();
+	Student s2 = new Student();
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -35,8 +35,6 @@ public class TeacherTest {
 	@Test
 	public void testAddStudentsPos() {
 		t = new Teacher(0, null, null, null, null, null, null, null, null, null, null, false);
-		s1 = new Student(0, null, null, null, null, null, null, null, null, null, null, false);
-		s2 = new Student(0, null, null, null, null, null, null, null, null, null, null, false);
 		t.addStudent(s1);
 		t.addStudent(s2);
 		int len = t.getStudents().size();
@@ -46,8 +44,6 @@ public class TeacherTest {
 	@Test
 	public void testAddStudentsNeg() {
 		t = new Teacher(0, null, null, null, null, null, null, null, null, null, null, false);
-		s1 = new Student(0, null, null, null, null, null, null, null, null, null, null, false);
-		s2 = new Student(0, null, null, null, null, null, null, null, null, null, null, false);
 		t.addStudent(s1);
 		t.addStudent(s2);
 		int len = t.getStudents().size();
@@ -57,8 +53,8 @@ public class TeacherTest {
 	@Test
 	public void testRemoveStudentsPos() {
 		t = new Teacher(0, null, null, null, null, null, null, null, null, null, null, false);
-		s1 = new Student(0, null, null, null, null, null, null, null, null, null, null, false);
-		s2 = new Student(0, null, null, null, null, null, null, null, null, null, null, false);
+		s1 = new Student();
+		s2 = new Student();
 		t.addStudent(s1);
 		t.addStudent(s2);
 		t.removeStudent(s1);
@@ -70,8 +66,6 @@ public class TeacherTest {
 	@Test
 	public void testRemoveStudentsNeg() {
 		t = new Teacher(0, null, null, null, null, null, null, null, null, null, null, false);
-		s1 = new Student(0, null, null, null, null, null, null, null, null, null, null, false);
-		s2 = new Student(0, null, null, null, null, null, null, null, null, null, null, false);
 		t.addStudent(s1);
 		t.addStudent(s2);
 		t.removeStudent(s1);

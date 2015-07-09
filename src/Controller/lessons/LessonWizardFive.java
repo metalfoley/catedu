@@ -41,7 +41,7 @@ public class LessonWizardFive extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		assessments = createAssessmentTypes();
 		request.setAttribute("assessments", assessments);
-		request.getRequestDispatcher("/lessoncreatewiz5.jsp").forward(request, response);	
+		request.getRequestDispatcher("WEB-INF/lessoncreatewiz5.jsp").forward(request, response);	
 		}
 
 	/**
@@ -75,7 +75,7 @@ public class LessonWizardFive extends HttpServlet {
 		
 		request.setAttribute("tempLesson", tempLesson);
 		request.setAttribute("assessments", assessments);
-		request.getRequestDispatcher("/lessoncreatewiz5.jsp").forward(request, response);
+		request.getRequestDispatcher("WEB-INF/lessoncreatewiz5.jsp").forward(request, response);
 	}
 	
 	// Creates a HashMap of assessment types with their corresponding id

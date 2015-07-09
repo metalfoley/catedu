@@ -36,7 +36,7 @@ public class LessonWizardFour extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/lessoncreatewiz4.jsp").forward(request, response);
+		request.getRequestDispatcher("WEB-INF/lessoncreatewiz4.jsp").forward(request, response);
 	}
 
 	/**
@@ -93,7 +93,7 @@ public class LessonWizardFour extends HttpServlet {
 			request.setAttribute("tempLesson", tempLesson);
 			request.setAttribute("classes", DaoClass.getClasses());
 			request.setAttribute("coreStandards", coreStandards);
-			request.getRequestDispatcher("/lessoncreatewiz4.jsp").forward(request, response);
+			request.getRequestDispatcher("WEB-INF/lessoncreatewiz4.jsp").forward(request, response);
 		}
 	}
 

@@ -38,7 +38,7 @@ public class mainDashboard extends HttpServlet {
 			DaoLesson dl = new DaoLesson();
 			request.setAttribute("allLessons", dl.getAllLessons());
 			request.setAttribute("allLessonPlans", DaoLessonPlan.getAllLessonPlans());
-			request.getRequestDispatcher("/index.jsp").forward(request,response);
+			request.getRequestDispatcher("WEB-INF/index.jsp").forward(request,response);
 		} else {
 			response.sendRedirect("login");
 		}
@@ -103,7 +103,7 @@ public class mainDashboard extends HttpServlet {
 	private void setError(HttpServletRequest request, HttpServletResponse response) {
 		request.setAttribute("error", error);
 		try {
-			request.getRequestDispatcher("/login.jsp").forward(request,response);
+			request.getRequestDispatcher("WEB-INF/login.jsp").forward(request,response);
 		} catch (ServletException | IOException e) {
 			Filo.log(e.getMessage());
 		}

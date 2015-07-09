@@ -33,7 +33,7 @@ public class LessonPlanWizard extends HttpServlet {
 		if(request.getParameter("lpid") != null)
 			request.setAttribute("lpid", request.getParameter("lpid"));
 		request.setAttribute("classes", DaoClass.getClasses());
-		request.getRequestDispatcher("/lessonplancreatewiz1.jsp").forward(request, response);
+		request.getRequestDispatcher("WEB-INF/lessonplancreatewiz1.jsp").forward(request, response);
 	}
 
 	/**

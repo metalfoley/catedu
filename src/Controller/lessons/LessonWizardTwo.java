@@ -73,7 +73,7 @@ public class LessonWizardTwo extends HttpServlet {
 				DBConn.closeConn();
 			}
 			session.setAttribute("tempLesson", tempLesson);
-			request.getRequestDispatcher("/lessoncreatewiz2.jsp").forward(request, response);
+			request.getRequestDispatcher("WEB-INF/lessoncreatewiz2.jsp").forward(request, response);
 		}
 		else {
 			response.sendRedirect("LessonWizard");

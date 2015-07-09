@@ -10,7 +10,7 @@
         <div class="row">
           <a href="lessonplanwizard"><button type="button" class="btn btn-primary">Create Lesson Plan</button></a>
           <a href="lessonwizard"><button type="button" class="btn btn-primary">Create Lesson</button></a>
-          <a href="#"><button type="button" class="btn btn-primary">Add Student</button></a>
+          <a href="addstudentwizard"><button type="button" class="btn btn-primary">Add Student</button></a>
         </div>
         <div class="row">
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Deactivate</button>

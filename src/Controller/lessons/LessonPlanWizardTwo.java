@@ -33,7 +33,7 @@ public class LessonPlanWizardTwo extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		DaoLesson dl = new DaoLesson();
 		request.setAttribute("lessons", dl.getAllLessons());
-		request.getRequestDispatcher("/lessonplancreatewiz2.jsp").forward(request, response);
+		request.getRequestDispatcher("WEB-INF/lessonplancreatewiz2.jsp").forward(request, response);
 	}
 
 	/**
@@ -45,7 +45,7 @@ public class LessonPlanWizardTwo extends HttpServlet {
 		request.getSession().setAttribute("lessonPlan", lp);
 		request.setAttribute("lessonPlan", lp);
 		request.setAttribute("lessons", dl.getAllLessons());
-		request.getRequestDispatcher("/lessonplancreatewiz2.jsp").forward(request, response);
+		request.getRequestDispatcher("WEB-INF/lessonplancreatewiz2.jsp").forward(request, response);
 	}
 
 }

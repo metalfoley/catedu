@@ -37,7 +37,7 @@ public class LessonPlanDashboard extends HttpServlet {
 		if(Auth.checkAuth(session, request)) {
 			lpid = Integer.parseInt(request.getParameter("lpid"));
 			request.setAttribute("lp", DaoLessonPlan.createLessonPlanFull(lpid));
-			request.getRequestDispatcher("/lessonplandashboard.jsp").forward(request, response);
+			request.getRequestDispatcher("WEB-INF/lessonplandashboard.jsp").forward(request, response);
 		} else {
 			response.sendRedirect("login");
 		}

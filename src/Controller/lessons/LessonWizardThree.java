@@ -86,11 +86,11 @@ public class LessonWizardThree extends HttpServlet {
 			tempLesson.setMaterials(materials);
 			request.setAttribute("tempLesson", tempLesson);
 			request.setAttribute("lessons", lessons);
-			request.getRequestDispatcher("/lessoncreatewiz3.jsp").forward(request, response);
+			request.getRequestDispatcher("WEB-INF/lessoncreatewiz3.jsp").forward(request, response);
 		}
 		else {
 			request.setAttribute("error", true);
-			request.getRequestDispatcher("/lessoncreatewiz2.jsp").forward(request, response);
+			request.getRequestDispatcher("WEB-INF/lessoncreatewiz2.jsp").forward(request, response);
 		}
 	}
 

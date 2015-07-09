@@ -31,7 +31,7 @@
 			</div>
 			
 			<div class="pull-right">
-				<button value="Cancel" class="btn btn-danger">Cancel</button>
+				<a href="lessonplandashboard?lpid=${lessonPlan.getId()}"><button type="button" value="Cancel" class="btn btn-danger">Cancel</button></a>
 				<button type="submit" value="Continue" class="btn btn-success">Continue</button>
 			</div>
 			<p><span class="glyphicon glyphicon-asterisk"></span> Required Field</p>

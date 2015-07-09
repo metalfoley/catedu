@@ -3,6 +3,7 @@ package program;
 public abstract class Person {
 	
 	protected String firstName;
+	protected String middleName;
 	protected String lastName;
 	protected String fullName;
 	protected int id;
@@ -11,6 +12,7 @@ public abstract class Person {
 	protected String state;
 	protected String zipCode;
 	protected String phoneOne;
+	protected String phoneTwo;
 	protected String email;
 	protected String role;
 	protected boolean active;
@@ -151,4 +153,22 @@ public abstract class Person {
 	public void setActive(boolean active) {
 		this.active = active;
 	}
+
+	public String getMiddleName() {
+		return middleName;
+	}
+
+	public void setMiddleName(String middleName) {
+		this.middleName = middleName;
+	}
+
+	public String getPhoneTwo() {
+		return phoneTwo;
+	}
+
+	public void setPhoneTwo(String phoneTwo) {
+		this.phoneTwo = phoneTwo;
+	}
+	
+	
 }

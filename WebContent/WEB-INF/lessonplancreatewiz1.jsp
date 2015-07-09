@@ -21,13 +21,13 @@
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="shortdescription">Short Description: </label>
 				<div class="col-sm-10">
-					<textarea class="form-control" name="shortdescription" maxlength="250"></textarea>
+					<textarea class="form-control" value="" name="shortdescription" maxlength="250"></textarea>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="fulldescription">Full Description: </label>
 				<div class="col-sm-10">
-					<textarea class="form-control" name="fulldescription" maxlength="250"></textarea>
+					<textarea class="form-control" value="" name="fulldescription" maxlength="250"></textarea>
 				</div>
 			</div>
 			<div class="form-group">

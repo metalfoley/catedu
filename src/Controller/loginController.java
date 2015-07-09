@@ -31,7 +31,7 @@ public class loginController extends HttpServlet {
 		currentUser = (CurrentUser) session.getAttribute("currentUser");
 
 		if(currentUser == null) 
-			request.getRequestDispatcher("/login.jsp").forward(request,response);
+			request.getRequestDispatcher("WEB-INF/login.jsp").forward(request,response);
 		else
 			response.sendRedirect("home");
 			
@@ -53,7 +53,7 @@ public class loginController extends HttpServlet {
 	private void setError(HttpServletRequest request, HttpServletResponse response) {
 		request.setAttribute("error", error);
 		try {
-			request.getRequestDispatcher("login.jsp").forward(request,response);
+			request.getRequestDispatcher("WEB-INF/login.jsp").forward(request,response);
 		} catch (ServletException | IOException e) {
 			Filo.log(e.getMessage());
 		}

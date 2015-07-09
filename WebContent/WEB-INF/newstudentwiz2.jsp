@@ -8,11 +8,18 @@
 			<fieldset>
 				<legend align="right">Primary</legend>
 				<div class="form-group">
-					<label class="col-sm-2 control-label" for="guardian1">
-						Parent/Legal Guardian:
+					<label class="col-sm-2 control-label" for="guardfOne">
+						<span class="glyphicon glyphicon-asterisk"></span> 
+						Name:
 					</label>
-					<div class="col-sm-10">
-						<input class="form-control" placeholder="Sam Smith" type="text" name="guardian1" pattern="[a-zA-Z]{0,100}" />
+					<div class="col-sm-3">
+						<input class="form-control" placeholder="Sam" type="text" name="guardfOne" value="" pattern="[a-zA-Z]{0,50}" required />
+					</div>
+					<div class="col-sm-3">
+						<input class="form-control" placeholder="Stan" type="text" pattern="[a-zA-Z]{0,50}" value="" name="guardmOne" />
+					</div>
+					<div class="col-sm-4">
+						<input class="form-control" type="text" placeholder="Smith" pattern="[a-zA-Z]{0,50}" value="" name="guardlOne" required />
 					</div>
 				</div>
 				<div class="form-group">
@@ -45,18 +52,25 @@
 				<div class="form-group">
 					<label class="col-sm-2 control-label" for="relationship1">Relationship To Student: </label>
 					<div class="col-sm-10">
-						<input class="form-control phone" placeholder="Mother" type="text" name="relationship1" pattern="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}"/>
+						<input class="form-control" placeholder="Mother" type="text" name="relationship1" />
 					</div>
 				</div>
 			</fieldset>
 			<fieldset>
 				<legend align="right">Secondary</legend>
 				<div class="form-group">
-					<label class="col-sm-2 control-label" for="guardian2">
-						Parent/Legal Guardian:
+					<label class="col-sm-2 control-label" for="guardfTwo">
+						<span class="glyphicon glyphicon-asterisk"></span> 
+						Name:
 					</label>
-					<div class="col-sm-10">
-						<input class="form-control" placeholder="Sam Smith" type="text" name="guardian2" pattern="[a-zA-Z]{0,100}" />
+					<div class="col-sm-3">
+						<input class="form-control" placeholder="Sam" type="text" name="guardfTwo" value="" pattern="[a-zA-Z]{0,50}" required />
+					</div>
+					<div class="col-sm-3">
+						<input class="form-control" placeholder="Stan" type="text" pattern="[a-zA-Z]{0,50}" value="" name="guardmTwo" />
+					</div>
+					<div class="col-sm-4">
+						<input class="form-control" type="text" placeholder="Smith" pattern="[a-zA-Z]{0,50}" value="" name="guardlTwo" required />
 					</div>
 				</div>
 				<div class="form-group">
@@ -89,7 +103,7 @@
 				<div class="form-group">
 					<label class="col-sm-2 control-label" for="relationship2">Relationship To Student: </label>
 					<div class="col-sm-10">
-						<input class="form-control phone" placeholder="Father" type="text" name="relationship2" pattern="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}"/>
+						<input class="form-control" placeholder="Father" type="text" name="relationship2"/>
 					</div>
 				</div>
 				<div class="pull-right">

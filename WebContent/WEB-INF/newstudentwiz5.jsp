@@ -9,7 +9,7 @@
 				<label class="col-sm-1 control-label" for="grade">Grade: </label>
 				<div class="col-sm-4">
 					<select class="form-control" name="grade">
-						<option></option>
+						<option value="" selected disabled>Please Select A Grade</option>
 						<option value="1">1</option>
 						<option value="2">2</option>
 						<option value="3">3</option>
@@ -30,7 +30,7 @@
 				<label class="col-sm-1 control-label" for="language">Language: </label>
 				<div class="col-sm-5">
 					<select class="form-control" id="langselect" name="language" disabled>
-						<option></option>
+						<option value="" selected disabled>Please Select A Language</option>
 						<option value="spanish">Spanish</option>
 						<option value="german">German</option>
 						<option value="russian">Russian</option>

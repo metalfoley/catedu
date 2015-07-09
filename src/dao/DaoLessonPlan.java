@@ -44,15 +44,16 @@ public class DaoLessonPlan {
 	
 	public static LessonPlan createLessonPlanFull(int id) {
 		
-		String columns,table,join1,join2,join3,where,query;
+		String conditionIf,conditionElse,columns,table,join1,join2,join3,where,query;
+		conditionIf = "IF EXISTS (SELECT * FROM LessonPlan_Lesson_Link WHERE ID = " + id + ")";
+		conditionElse = "SELECT lp.Name AS LPName, lp.ShortDescription, lp.FullDescription, Classes.Name AS LPSubject FROM LessonPlan AS lp INNER JOIN Classes ON lp.SubjectID=Classes.ID WHERE lp.ID=" + id;
 		columns = "l.ID AS LessonID, l.Name AS LessonName, lp.Name AS LPName, lp.ShortDescription, lp.FullDescription, Classes.Name AS LPSubject";
 		table = "LessonPlan_Lesson_Link AS Link";
 		join1 ="INNER JOIN Lesson As l ON Link.LessonID=l.ID";
 		join2 = "INNER JOIN LessonPlan AS lp ON Link.LessonPlanID=lp.ID";
 		join3 = "INNER JOIN Classes ON lp.SubjectID=Classes.ID";
 		where = "WHERE LessonPlanID="+id;
-		query = String.format("SELECT %s FROM %s %s %s %s %s", columns,table,join1,join2,join3,where);
-		
+		query = String.format("%s BEGIN SELECT %s FROM %s %s %s %s %s END ELSE BEGIN %s END", conditionIf,columns,table,join1,join2,join3,where,conditionElse);
 		DBConn.openConn();
 		LessonPlan tempLP = ExtractLessonPlan.extractLessonPlanFull(DBConn.query(query));
 		DBConn.closeConn();

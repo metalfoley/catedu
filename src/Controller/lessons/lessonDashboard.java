@@ -40,7 +40,7 @@ public class lessonDashboard extends HttpServlet {
 			dl = new DaoLesson();
 			id = Integer.parseInt(request.getParameter("lid"));
 			request.setAttribute("lesson", dl.createLesson(id));
-			request.getRequestDispatcher("/lessonDashboard.jsp").forward(request, response);
+			request.getRequestDispatcher("WEB-INF/lessonDashboard.jsp").forward(request, response);
 		} else {
 			response.sendRedirect("login");
 		}
